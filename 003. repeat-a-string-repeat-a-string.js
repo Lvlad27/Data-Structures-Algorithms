@@ -17,7 +17,7 @@ repeatStringNumTimes("abc", 3);
 
 
 
-
+/*
 Approach #1: Repeat a String with a While Loop
 
 A while statement executes its statement as long as a specified condition evaluates to true.

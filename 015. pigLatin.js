@@ -1,31 +1,33 @@
+/*Pig Latin is a way of altering English Words. The rules are as follows:
+- If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it.
+- If a word begins with a vowel, just add way at the end.
+Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+*/
+
+// MY METHOD
 function translatePigLatin(str) {
-    const len = 100;
-    let newStr = '';
-    const regEx = /[bcdfghjklmnpqrstvwxyz]/;
-    str.split('');
-    let m = str.match(regEx);
-      if (str[0] === m) {
-        str.push(str[0]);
-      }
+    const regEx = /^[b-df-hj-np-tv-z]+/g;
+    if (str.match(regEx)) {
+        return str.replaceAll(regEx, "").concat("", str.match(regEx) + "ay");
+    } else {
+        return str.concat("", "way");
+    }
+    console.log(str);
     return str;
-  }
-  
-  console.log(translatePigLatin("consonant"));
-  console.log(translatePigLatin("california"));
-  console.log(translatePigLatin("paragraphs"));
-  console.log(translatePigLatin("glove"));
-  console.log(translatePigLatin("algorithm"));
-  console.log(translatePigLatin("eight"));
-  console.log(translatePigLatin("schwartz"));
-  console.log(translatePigLatin("rhythm"));
-  
-  /*
-  1. Maybe turn the string into an array so that it's easy to move;
-  2. Find the regex for consonants, or cluster of consonants.
-  3. Find the regex for vowels.
-  4. Find the regex for non-vowels.
-  5. Find how to move a character or a cluster of characters from a word to the end of the word.
-  6. Find how to iterate the characters of a word.
-  7. 
-  */
-  
+}
+
+console.log(translatePigLatin("consonant"));
+console.log(translatePigLatin("california"));
+console.log(translatePigLatin("paragraphs"));
+console.log(translatePigLatin("glove"));
+console.log(translatePigLatin("algorithm"));
+console.log(translatePigLatin("eight"));
+console.log(translatePigLatin("schwartz"));
+console.log(translatePigLatin("rhythm"));
+
+/*
+Code explanation:
+1. Define regEx for consonants or cluster of consonants;
+2. If regex is found in string, then remove first consonant or first cluster of consonants and move it to the end of ther word and then add 'ay'. If the whole word matches the regex, it removes the word and then adds it back together with 'ay'.
+3. If the regex is not found, add 'way' to the end of the word.
+*/
