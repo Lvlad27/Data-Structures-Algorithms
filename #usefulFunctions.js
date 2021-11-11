@@ -21,6 +21,9 @@
 // Create a variable for the white space and underscores.
 var regex = /\s+|_+/g;
 
+// regex for consonants or cluster of consonants
+const regEx = /^[b-df-hj-np-tv-z]+/g;
+
 // Replace low-upper case to low-space-uppercase
 str = str.replace(/([a-z])([A-Z])/g, "$1 $2");
 
