@@ -10,6 +10,7 @@ dropElements([1, 2, 3, 7, 4], function(n) {return n > 3;}) should return [7, 4].
 dropElements([1, 2, 3, 9, 2], function(n) {return n > 2;}) should return [3, 9, 2]
 */
 
+// METHOD 1
 function dropElements(arr, func) {
     let len = arr.length;
     for (let i = 0; i < len; i++) {
@@ -42,3 +43,19 @@ console.log(
         return n > 5;
     })
 );
+
+/*
+METHOD 2
+
+function dropElements(arr, func) {
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+// test here
+dropElements([1, 2, 3, 4], function(n) {
+  return n >= 3;
+});
+*/
