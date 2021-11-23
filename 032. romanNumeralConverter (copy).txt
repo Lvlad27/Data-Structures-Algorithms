@@ -96,9 +96,8 @@ function convertToRoman(num) {
     }
     return convertedNum.join('');
   };
-
   console.log(num);
   return converter(num);
 }
 
-console.log(convertToRoman(289));
+console.log(convertToRoman(2));
