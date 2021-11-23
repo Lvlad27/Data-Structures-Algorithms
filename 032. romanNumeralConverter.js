@@ -1,3 +1,36 @@
+/* 
+Convert the given number into a roman numeral.
+
+convertToRoman(2) should return the string II.
+convertToRoman(3) should return the string III.
+convertToRoman(4) should return the string IV.
+convertToRoman(5) should return the string V.
+convertToRoman(9) should return the string IX.
+convertToRoman(12) should return the string XII.
+convertToRoman(16) should return the string XVI.
+convertToRoman(29) should return the string XXIX.
+convertToRoman(44) should return the string XLIV.
+convertToRoman(45) should return the string XLV.
+convertToRoman(68) should return the string LXVIII
+convertToRoman(83) should return the string LXXXIII
+convertToRoman(97) should return the string XCVII
+convertToRoman(99) should return the string XCIX
+convertToRoman(400) should return the string CD
+convertToRoman(500) should return the string D
+convertToRoman(501) should return the string DI
+convertToRoman(649) should return the string DCXLIX
+convertToRoman(798) should return the string DCCXCVIII
+convertToRoman(891) should return the string DCCCXCI
+convertToRoman(1000) should return the string M
+convertToRoman(1004) should return the string MIV
+convertToRoman(1006) should return the string MVI
+convertToRoman(1023) should return the string MXXIII
+convertToRoman(2014) should return the string MMXIV
+convertToRoman(3999) should return the string MMMCMXCIX
+
+All roman numerals answers should be provided in upper-case.
+*/
+
 'use strict';
 
 function convertToRoman(num) {
@@ -20,9 +53,9 @@ function convertToRoman(num) {
   // Step 4. Define key-value pairs of roman symbols and corresponding integers as an object.
   const roman = {
     I: 1,
-    II: 3,
-    III: 4,
-    IV: 5,
+    II: 2,
+    III: 3,
+    IV: 4,
     V: 5,
     VI: 6,
     VII: 7,
@@ -45,6 +78,10 @@ function convertToRoman(num) {
     DC: 600,
     DCC: 700,
     DCCC: 800,
+    CM: 900,
+    M: 1000,
+    MM: 2000,
+    MMM: 3000,
   };
 
   // Step 5. Convert a given array of base 10 integers into an array of corresponding roman symbols.
@@ -57,15 +94,10 @@ function convertToRoman(num) {
     for (let i = 0; i < arr.length; i++) {
       convertedNum.push(getKeybyValue(roman, arr[i]));
     }
-    return convertedNum;
+    return convertedNum.join('');
   };
-
-  num = converter();
-
-  console.log(converter(num));
-  console.log(converter(decomp(numArr())));
-
-  return num;
+  console.log(num);
+  return converter(num);
 }
 
-convertToRoman(649);
+console.log(convertToRoman(2));
