@@ -31,4 +31,24 @@ console.log(rot13('SERR PBQR PNZC'));
 for c in (65, 97):
     for i in range(26):
         d[chr(i+c)] = chr((i+13) % 26 + c)
+
+
+METHOD 2
+
+function rot13(str) {
+  let cipher = "";
+  const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+
+  for (let i = 0; i < str.length; i++) {
+    if (/\w/.test(str[i])) {
+      // checks if letter
+      cipher += alphabet[alphabet.indexOf(str[i]) + 13];
+    } else {
+      cipher += str[i];
+    }
+  }
+
+  return cipher;
+};
+
 */
