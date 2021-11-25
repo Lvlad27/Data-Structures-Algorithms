@@ -21,17 +21,17 @@ mutation(["Noel", "Ole"]) should return true.
 */
 
 function mutation(arr) {
-  let answer = true;
-  let newArr = arr.map(x => x.toLowerCase());
-  let [source, target] = [newArr[0], newArr[1]];
+	let answer = true;
+	let newArr = arr.map(x => x.toLowerCase());
+	let [source, target] = [newArr[0], newArr[1]];
 
-  for (let i = 0; i < target.length; i++) {
-    let targetContainsLetter = source.includes(target[i]);
-    if (!targetContainsLetter) {
-      answer = false;
-    }
-  }
-  return answer;
+	for (let i = 0; i < target.length; i++) {
+		let targetContainsLetter = source.includes(target[i]);
+		if (!targetContainsLetter) {
+			answer = false;
+		}
+	}
+	return answer;
 }
 
 console.log(mutation(['hello', 'hey']));

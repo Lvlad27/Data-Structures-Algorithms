@@ -11,9 +11,24 @@ rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.") should decode to the strin
 */
 
 function rot13(str) {
-	const alphab = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-	return str;
+	let encoded = '';
+	let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	for (let i = 0; i < str.length; i++) {
+		if (alphabet.indexOf(str.charAt(i)) > -1) {
+			encoded += alphabet.charAt(
+				(alphabet.indexOf(str.charAt(i)) + 13) % 26
+			);
+		} else {
+			encoded += str.charAt(i);
+		}
+	}
+	return encoded;
 }
+console.log(rot13('SERR PBQR PNZC'));
 
-rot13('SERR PBQR PNZC');
+/*
+    d = {}
+for c in (65, 97):
+    for i in range(26):
+        d[chr(i+c)] = chr((i+13) % 26 + c)
+*/
