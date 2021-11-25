@@ -33,6 +33,8 @@ All roman numerals answers should be provided in upper-case.
 
 'use strict';
 
+//MY METHOD
+
 function convertToRoman(num) {
   // Step 1. Convert input number into an array.
   const numArr = () => Array.from(String(num), Number);
@@ -100,5 +102,11 @@ function convertToRoman(num) {
   console.log(num);
   return converter(num);
 }
-
+e;
 console.log(convertToRoman(289));
+
+/*
+METHOD 2
+
+
+*/

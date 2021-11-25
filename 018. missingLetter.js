@@ -18,19 +18,19 @@ fearNotLetter("abcdefghijklmnopqrstuvwxyz") should return undefined.
 */
 
 function fearNotLetter(str) {
-    const alphabet = "abcdefghijklmnopqrstuvwxyz";
-    const start = alphabet.indexOf(str[0]);
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  const start = alphabet.indexOf(str[0]);
 
-    for (let i = start; i < start + str.length; i++) {
-        if (!str.includes(alphabet[i])) {
-            return alphabet[i];
-        }
+  for (let i = start; i < start + str.length; i++) {
+    if (!str.includes(alphabet[i])) {
+      return alphabet[i];
     }
-    return undefined;
+  }
+  return undefined;
 }
 
-console.log(fearNotLetter("abce"));
-console.log(fearNotLetter("abcdefghjklmno"));
-console.log(fearNotLetter("stvwx"));
-console.log(fearNotLetter("bcdf"));
-console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
+console.log(fearNotLetter('abce'));
+console.log(fearNotLetter('abcdefghjklmno'));
+console.log(fearNotLetter('stvwx'));
+console.log(fearNotLetter('bcdf'));
+console.log(fearNotLetter('abcdefghijklmnopqrstuvwxyz'));

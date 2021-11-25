@@ -14,16 +14,16 @@ uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) should return [1, 2, 3, 
 // MY METHOD
 
 function uniteUnique(arr) {
-    // Create an empty array in which we merge all the values from the input arrays.
-    let mergedArr = [];
-    // Loop through all of the input arrays
-    for (let i = 0; i < arguments.length; i++) {
-        // Merge all the values
-        mergedArr = mergedArr.concat(arguments[i]);
-    }
-    // Remove all duplicates from the array and assign them to a new final array.
-    let finalArr = [...new Set(mergedArr)];
-    return finalArr;
+  // Create an empty array in which we merge all the values from the input arrays.
+  let mergedArr = [];
+  // Loop through all of the input arrays
+  for (let i = 0; i < arguments.length; i++) {
+    // Merge all the values
+    mergedArr = mergedArr.concat(arguments[i]);
+  }
+  // Remove all duplicates from the array and assign them to a new final array.
+  let finalArr = [...new Set(mergedArr)];
+  return finalArr;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
