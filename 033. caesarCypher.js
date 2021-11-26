@@ -25,6 +25,7 @@ function rot13(str) {
 	return encoded;
 }
 console.log(rot13('SERR PBQR PNZC'));
+console.log(13 % 26);
 
 /*
     d = {}
