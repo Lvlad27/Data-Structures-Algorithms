@@ -60,4 +60,4 @@ function telephoneCheck(str) {
 
 telephoneCheck('555-555-5555');
 
-// https://regex101.com/r/RuQF59/1 - one regex for all
+// https://regex101.com/r/RuQF59/2 - one regex for all
