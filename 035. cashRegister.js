@@ -16,20 +16,31 @@ checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUART
 */
 
 function checkCashRegister(price, cash, cid) {
-	const dollar = 1;
+	let dollar = 1;
+	const zero = 0;
 	const currency = {
-		PENNY: 0.01,
-		NICKEL: 0.05,
-		DIME: 0.1,
-		QUARTER: 0.25,
-		DOLLAR: 1,
-		'FIVE DOLLARS': 5,
-		'TEN DOLLARS': 10,
-		'TWENTY DOLLARS': 20,
-		'ONE-HUNDRED DOLLARS': 100,
+		PENNY: 0.01 * dollar,
+		NICKEL: 0.05 * dollar,
+		DIME: 0.1 * dollar,
+		QUARTER: 0.25 * dollar,
+		DOLLAR: dollar,
+		'FIVE DOLLARS': 5 * dollar,
+		'TEN DOLLARS': 10 * dollar,
+		'TWENTY DOLLARS': 20 * dollar,
+		'ONE-HUNDRED DOLLARS': 100 * dollar,
+	};
+	let change;
+	let statusObject = {};
+
+	const insufficientFunds = function () {
+		if (cid < change) {
+			statusObject['status'] = 'INSUFFICIENT_FUNDS';
+			//statusObject[change] =
+		}
+
+		return statusObject;
 	};
 
-	let change;
 	return change;
 }
 
