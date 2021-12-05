@@ -16,8 +16,9 @@ checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUART
 */
 
 function checkCashRegister(price, cash, cid) {
-	let dollar = 1;
-	const zero = 0;
+	const dollar = 1;
+
+	// Define the currency object. Each currency is based on the initial value of the 'dollar' variable.
 	const currency = {
 		PENNY: 0.01 * dollar,
 		NICKEL: 0.05 * dollar,
@@ -29,11 +30,21 @@ function checkCashRegister(price, cash, cid) {
 		'TWENTY DOLLARS': 20 * dollar,
 		'ONE-HUNDRED DOLLARS': 100 * dollar,
 	};
-	let change;
+
 	let statusObject = {};
 
+	// Find out the total amount of cash dollars in the register drawer.
+	const cidTotal = function () {
+		let sum = cid.reduce((sum, current) => sum + current[1], 0);
+		return Math.round((sum + Number.EPSILON) * 100) / 100;
+	};
+
+	// Calculate the change object
+	let change;
+
+	// Define function if cash-in-drawer is less than the change due, or if the exact change cannot be returned.
 	const insufficientFunds = function () {
-		if (cid < change) {
+		if (cidTotal < change) {
 			statusObject['status'] = 'INSUFFICIENT_FUNDS';
 			//statusObject[change] =
 		}
@@ -59,13 +70,13 @@ checkCashRegister(19.5, 20, [
 /*
 Currency Unit	Amount
 
-Penny	$0.01 (PENNY)
-Nickel	$0.05 (NICKEL)
-Dime	$0.1 (DIME)
-Quarter	$0.25 (QUARTER)
-Dollar	$1 (ONE)
-Five Dollars	$5 (FIVE)
-Ten Dollars	$10 (TEN)
-Twenty Dollars	$20 (TWENTY)
+Penny				$0.01 (PENNY)
+Nickel				$0.05 (NICKEL)
+Dime				$0.1 (DIME)
+Quarter				$0.25 (QUARTER)
+Dollar				$1 (ONE)
+Five Dollars		$5 (FIVE)
+Ten Dollars			$10 (TEN)
+Twenty Dollars		$20 (TWENTY)
 One-hundred Dollars	$100 (ONE HUNDRED)
 */
