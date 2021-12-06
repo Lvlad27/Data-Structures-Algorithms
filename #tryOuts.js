@@ -13,6 +13,8 @@ let arr = [
 let sum = arr.reduce((sum, current) => sum + current[1], 0);
 sum = Math.round((sum + Number.EPSILON) * 100) / 100;
 
+const change = 96.74;
+
 function flatten(arr) {
 	let flatArr = [];
 	for (let i = 0; i < arr.length; i++) {
@@ -30,6 +32,7 @@ arr = flatten;
 const newObject = Object.assign({}, arr);
 
 console.log(sum);
+console.log(change % 10);
 
 /*
 function open()
