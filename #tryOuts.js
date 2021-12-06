@@ -28,6 +28,7 @@ function flatten(arr) {
 }
 
 console.log(flatten(arr));
+asdasda;
 arr = flatten;
 const newObject = Object.assign({}, arr);
 
