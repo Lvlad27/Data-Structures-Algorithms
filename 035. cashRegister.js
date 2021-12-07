@@ -34,6 +34,7 @@ function checkCashRegister(price, cash, cid) {
 		['TWENTY', 20],
 		['ONE HUNDRED', 100],
 	];
+
 	let change = [
 		['PENNY', 0],
 		['NICKEL', 0],
