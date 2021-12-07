@@ -38,6 +38,7 @@ All roman numerals answers should be provided in upper-case.
 function convertToRoman(num) {
 	// Step 1. Convert input number into an array.
 	const numArr = () => Array.from(String(num), Number);
+	console.log(numArr(num));
 
 	// Step 2. Return the corresponding base 10 decomposition as an array.
 	const decomp = arr => {
