@@ -21,79 +21,167 @@ checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUART
 */
 
 function checkCashRegister(price, cash, cid) {
-	console.log(`Change owed is equal to ${change}`);
-
 	let answer = {};
 
+	let currency = [
+		['PENNY', 0.01],
+		['NICKEL', 0.05],
+		['DIME', 0.1],
+		['QUARTER', 0.25],
+		['ONE', 1],
+		['FIVE', 5],
+		['TEN', 10],
+		['TWENTY', 20],
+		['ONE HUNDRED', 100],
+	];
+	let change = [
+		['PENNY', 0],
+		['NICKEL', 0],
+		['DIME', 0],
+		['QUARTER', 0],
+		['ONE', 0],
+		['FIVE', 0],
+		['TEN', 0],
+		['TWENTY', 0],
+		['ONE HUNDRED', 0],
+	];
+
 	// Step 1. Find out the total change owed.
-	let change = cash - price;
+	let changeTotal = cash - price;
 
 	// Step 2. Find out the total amount of cash dollars in the register drawer.
-	const cidTotal = function () {
-		let sum = cid.reduce((sum, current) => sum + current[1], 0);
-		return Math.round(sum * 100) / 100;
+	const totalCash = function (arr) {
+		let sum = arr.reduce((sum, current) => sum + current[1], 0);
+		return Math.round((sum + Number.EPSILON) * 100) / 100;
 	};
 
-	// Define a function that decomposes the change according to available cash-in-drawer (cid) currency.
+	let totalAvailableCash = totalCash(cid);
+	console.log(`Total cid = ${totalCash(cid)}`);
+	console.log(`Total change = ${changeTotal}`);
 
-	const decomp = function () {};
-
-	// Step 3. Define functions for every case.
-	// Define function 'insufficientFunds()' if cash-in-drawer is less than the change due, or if the exact change cannot be returned.
+	// Step 3. Define function 'insufficientFunds()' if cash-in-drawer is less than the change due. (, or if the exact change cannot be returned)
 	const insufficientFunds = function () {
 		answer['status'] = 'INSUFFICIENT_FUNDS';
-
-		//statusObject[change] =
-
+		answer['change'] = [];
 		return answer;
 	};
 
-	// Define function 'closed()' if cash-in-drawer is equal to change owed
+	// Step 4. Define function 'closed()' if cash-in-drawer is equal to change owed
+	const closed = function () {
+		answer['status'] = 'CLOSED';
+		answer['change'] = cid;
+		return answer;
+	};
 
-	// Define function 'open()' if cash-in-drawer is more than the change owed and the exact change can be returned.
-	// Decompose value of change based on the cid and sort from highest to lowest value
+	// Define function to remove currency entries that are equal to 0.
+	const removeEntries = function (arr) {
+		let index = arr.indexOf(0);
+		if (index > -1) {
+			arr.splice(index, 1);
+		}
+	};
 
-	return change;
+	// Step 5. Define function 'open()' if cash-in-drawer is more than the change owed and the exact change can be returned.
+
+	const open = function () {
+		// Reverse cid array so that it will log the required order.
+		cid.reverse();
+		currency.reverse();
+		change.reverse();
+		for (let i in currency) {
+			while (currency[i][1] <= changeTotal.toFixed(2) && cid[i][1] > 0) {
+				changeTotal -= currency[i][1];
+				cid[i][1] -= currency[i][1];
+				change[i][1] += currency[i][1];
+			}
+		}
+		change = change.filter(function (item) {
+			return item[1];
+		});
+		answer['status'] = 'OPEN';
+		answer['change'] = change;
+		return answer;
+	};
+
+	if (totalAvailableCash < changeTotal) {
+		return insufficientFunds();
+	} else if (totalAvailableCash === changeTotal) {
+		return closed();
+	} else if (totalAvailableCash > changeTotal) {
+		return open();
+	} else {
+		answer['status'] = 'INSUFFICIENT_FUNDS';
+		answer['change'] = [];
+		return answer;
+	}
 }
 
-checkCashRegister(19.5, 20, [
-	['PENNY', 1.01],
-	['NICKEL', 2.05],
-	['DIME', 3.1],
-	['QUARTER', 4.25],
-	['ONE', 90],
-	['FIVE', 55],
-	['TEN', 20],
-	['TWENTY', 60],
-	['ONE HUNDRED', 100],
-]);
+console.log(
+	checkCashRegister(19.5, 20, [
+		['PENNY', 1.01],
+		['NICKEL', 2.05],
+		['DIME', 3.1],
+		['QUARTER', 4.25],
+		['ONE', 90],
+		['FIVE', 55],
+		['TEN', 20],
+		['TWENTY', 60],
+		['ONE HUNDRED', 100],
+	])
+);
 
-/*
-Currency Unit	Amount
+console.log(
+	checkCashRegister(3.26, 100, [
+		['PENNY', 1.01],
+		['NICKEL', 2.05],
+		['DIME', 3.1],
+		['QUARTER', 4.25],
+		['ONE', 90],
+		['FIVE', 55],
+		['TEN', 20],
+		['TWENTY', 60],
+		['ONE HUNDRED', 100],
+	])
+);
 
-Penny				$0.01 (PENNY)
-Nickel				$0.05 (NICKEL)
-Dime				$0.1 (DIME)
-Quarter				$0.25 (QUARTER)
-Dollar				$1 (ONE)
-Five Dollars		$5 (FIVE)
-Ten Dollars			$10 (TEN)
-Twenty Dollars		$20 (TWENTY)
-One-hundred Dollars	$100 (ONE HUNDRED)
+console.log(
+	checkCashRegister(19.5, 20, [
+		['PENNY', 0.01],
+		['NICKEL', 0],
+		['DIME', 0],
+		['QUARTER', 0],
+		['ONE', 0],
+		['FIVE', 0],
+		['TEN', 0],
+		['TWENTY', 0],
+		['ONE HUNDRED', 0],
+	])
+);
 
+console.log(
+	checkCashRegister(19.5, 20, [
+		['PENNY', 0.01],
+		['NICKEL', 0],
+		['DIME', 0],
+		['QUARTER', 0],
+		['ONE', 1],
+		['FIVE', 0],
+		['TEN', 0],
+		['TWENTY', 0],
+		['ONE HUNDRED', 0],
+	])
+);
 
-
- Define the currency object. Each currency is based on the initial value of the 'dollar' variable.
- const currency = {
- 	PENNY: 0.01 * dollar,
- 	NICKEL: 0.05 * dollar,
- 	DIME: 0.1 * dollar,
- 	QUARTER: 0.25 * dollar,
- 	DOLLAR: dollar,
- 	'FIVE DOLLARS': 5 * dollar,
- 	'TEN DOLLARS': 10 * dollar,
- 	'TWENTY DOLLARS': 20 * dollar,
- 	'ONE-HUNDRED DOLLARS': 100 * dollar,
- };
-
- */
+console.log(
+	checkCashRegister(19.5, 20, [
+		['PENNY', 0.5],
+		['NICKEL', 0],
+		['DIME', 0],
+		['QUARTER', 0],
+		['ONE', 0],
+		['FIVE', 0],
+		['TEN', 0],
+		['TWENTY', 0],
+		['ONE HUNDRED', 0],
+	])
+);
