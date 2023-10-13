@@ -1,4 +1,4 @@
-const countUniqueValues = require("./040-countUniqueValues");
+const countUniqueValues = require("./countUniqueValues");
 
 test("Test 1", () => {
   expect(countUniqueValues([1, 1, 1, 1, 1, 2])).toBe(2);
