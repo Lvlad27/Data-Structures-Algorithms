@@ -25,3 +25,52 @@
  * 6. Can you think of other ways to refactor?
  * 7. How have other people solved the problem?
  */
+
+/**
+* UNDERSTAND
+* Restate problem: simplify it in your words
+* Know your data: What goes in (inputs) and what comes out (outputs)?
+* Enough info? Can you solve it with what you have?
+
+* EXPLORE
+* Start simple: Easy examples, then build up complexity.
+* Test the edges: Try empty and invalid inputs.
+
+* BREAKDOWN
+* List the steps: Write down what you need to do.
+* Simplify further: If stuck, try a smaller, similar problem.
+* Isolate the core: Focus on the toughest part, make it easier, then add it back in.
+
+ * LOOK BACK AND REFACTOR
+ * Can you check the result?
+ * Can you derive the result differently?
+ * Can you understand it at a glance?
+ * Can you use the result or method for some other problem?
+ * Can you improve the performance of your solution?
+ * Can you think of other ways to refactor?
+ * How have other people solved the problem?
+*/
+
+/**
+ * UNDERSTAND
+ * What is the problem, in your own words?
+ * Inputs?
+ * Outputs?
+ * Enough info?
+ *
+ * EXPLORE
+ * Start simple. Easy examples, then build complexity.
+ * Test with empty and invalid inputs.
+ *
+ * BREAKDOWN
+ * List the steps you need to take.
+ * If stuck, try a smaller, similar problem.
+ * Identify the core challenge, solve simpler parts, then integrate it.
+ *
+ * REFLECT & REFINE
+ * Check your answer: is it correct?
+ * Can you improve the performance of your solution?
+ * Consider alternative solutions.
+ * Make it clear and easy to understand.
+ * Can you think of other ways to refactor?
+ */
