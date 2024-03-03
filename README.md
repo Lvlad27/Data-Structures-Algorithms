@@ -1,6 +1,6 @@
 # 📚 Practice Repo
 
-Hi! This is my space where I explore Data Structures and Algorithms along with problem solving. Consider this repository as my online notebook, where I record my experience with different coding challenges, algorithm ideas, and how I solve problems using code. Whether you're here by chance or you're also learning about DSA, I hope my journey provides you with useful insights.
+Welcome! This is my space where I explore Data Structures and Algorithms along with problem solving. Consider this repository as my online notebook, where I record my experience with different coding challenges, algorithm ideas, and how I solve problems using code. Whether you're here by chance or you're also learning about DSA, I hope my journey provides you with useful insights.
 
 ## Purpose of This Repository:
 
