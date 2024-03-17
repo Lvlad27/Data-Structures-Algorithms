@@ -62,6 +62,24 @@ class Set {
 
     return newSet;
   }
+
+  // This method will return the difference of 2 sets
+  difference(set) {
+    const newSet = new Set();
+
+    this.values().forEach((value) => {
+      if (!set.has(value)) {
+        newSet.add(value);
+      }
+    });
+
+    return newSet;
+  }
+
+  // This method will test if a given set is included in another set
+  isSubsetOf(set) {
+    return this.values().every((value) => set.values().includes(value));
+  }
 }
 
 const setA = new Set();
