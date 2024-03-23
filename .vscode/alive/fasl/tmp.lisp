@@ -23,21 +23,29 @@
 (defun prompt-read (prompt)
   (format *query-io* "~a: " prompt)
   (force-output *query-io*)
-  (format t "Hello, ~a!~%" 
-  (read-line *query-io*)))
+  (read-line *query-io*))
 
-(defun name()
+(defun name ()
   (prompt-read "What is your name?"))
 
 (name)
 
 ;; Branch
-(defun enter-number()
-  (let ((input (or (parse-integer (prompt-read "Enter a number: ") :junk-allowed t) 0))))
-  (cond
-   (< input 50) (format t "~a~% Input is less than" input)
-   (> input 50) (format t "~a~% Input is greater than" input)
-   format t "~a~% Input is " 50))
+(defun enter-number ()
+  (let ((input (or (parse-integer (prompt-read "Enter number: ") :junk-allowed t) 0)))
+    (cond
+     ((< input 50) (format t "~a~% Input is less than 50" input))
+     ((> input 50) (format t "~a~% Input is greater than 50" input))
+     (t (format t "~a~% Input is equal to 50" input)))))
+
+(enter-number)
+
+;; Loop
+(defun counter (num)
+  (loop for i from 0 to num
+          do (print i)))
+
+(counter 100)
 
 
 
