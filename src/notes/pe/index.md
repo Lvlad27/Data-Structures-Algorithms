@@ -1229,8 +1229,9 @@ For Front-end, study usability, but can wait as most companies will insist Marke
 
 While advancing to Architect, will become Manager of others. Telepathy teaches treating subordinates with respect (or they get unhappy giving us a headache.) Respecting subordinates means allowing them to do the work (delegation) without micromanagement ('Agile").
 
-Complete path to becoming a great Software Developer Architect: 0. Start as a telepathic genius.
+Complete path to becoming a great Software Developer Architect:
 
+0. Start as a telepathic genius.
 1. Learn 4-5 programming languages.
 2. Get a job to experience what works with business and humans.
 3. Great software!
@@ -1341,5 +1342,916 @@ People incorrectly telling Managers/Executives that they are Leaders are selling
 I have BS Management and many years working at every professional level from grunt, to Manager of large teams, to CTO (and president of my own companies). I am also detail-oriented programmer: every character and term must be exact, precise, and correct.
 
 20240118
+
+---
+
+This is wrong. Since before 2000, Array should last choice (unless you are a Microsoftie so Array is only data structure you understand.) Arrays lead to easy bugs easily avoided by using an iterator instead of an index. Arrays are always DOM (load everything before processing) instead of SAX (load some, process, load some more).
+
+In 1980s, Arrays were great for random access of static length records. But static length records are bad, and random access using sequential numbers is rarely useful.
+
+Sorting an Array (sequentially numbered collection) is much more difficult and processor-intensive than sorting a Set (unsorted collection) into a List (sorted collection). The latter can be done with an Index (List of addresses of objects in Set) or Links (each object has address of next object).
+
+Hashing keys is good if the data key is long.
+Hashing is pointless using SSN as key for People.
+Most data structures have a key obviously better than hash or unuseful sequential number.
+
+Is this post intentionally sabotaging beginner programmers?
+
+Or just exists to generate many comments as every programmer (excluding Microsofties) strongly rejects, objects, and denigrates the idea and its author?
+
+20230622
+
+---
+
+9mo
+John Crickett Microsofties used Arrays for everything, because Arrays were their only data structure. This is fading as VB programmers are replaced by people who started with C# (copied Java and its collection classes).
+
+I explicitly explained DOM vs SAX for readers unfamiliar with XML terminology.
+
+Arrays/DOM. First load everything into memory. Then process using an integer to access each row using for() loop with easy one-off bugs.
+
+Most collection types have an iterator, so we can retrieve next(), great over network connections. We may buffer several records, but we do need to load all records before starting to process. This is how SAX works.
+
+While SAX can be called "sequential processing", I have not found a term meaning "load all data before processing" so I use XML terminology. I do not understand the insanity where everyone decided to use less-useful JSON. No term for sequentially processing JSON. (XHR allowed possibility; Microsoft did not implement.)
+
+I hope you keep studying software, the fun continues even after beginner challenges--like trying to do everything with only Arrays--disappear as you learn more collection types and better programming languages.
+
+20230622b
+
+---
+
+Adam Machanic Java List allows array-based ArrayList or doubly-linked list LinkedList. ArrayList is better for random access. LinkedList is better for manipulation, especially adding elements, especially adding elements out of order. If data was generated from SQL previously-sorted data and not adding more, Array or ArrayList is fine. If building a collection, adding entries, deleting entries, changing sort key, or doing anything else besides reading, LinkedList is better. If using only one, choose LinkedList.
+
+James Kazanegras XML to JSON trades end tags for reduced functionality and more punctuation. XML Namespaces reducing tag lengths can use less bandwidth.
+
+Protobuf loses labels and readability, and allegedly not good for large quantity and streaming.
+
+When I invented Microservices, I used CSV with Header. Still usually best, except Modern Software Engineers do not understand.
+
+Programmers use ISO 8601.
+
+Jave Integer(987654321).hashCode() returns 987654321
+I tested. Good to know.
+
+John Crickett Sorry. I am on LinkedIn to converse, pass bits of knowledge. I will not try to teach a college degree in a few Comments.
+
+The problems of contiguous memory are why we do not use arrays anymore.
+
+20230622c
+
+---
+
+"If building a collection, adding entries, deleting entries, changing sort key, or doing anything else besides reading, LinkedList is better. If using only one, choose LinkedList."
+
+Absolutely not correct. Pointer chasing is not free. Nor is memory allocation. Aside from out-of-order adds or deletes (and how often are you actually doing that?), a linked list will almost always fare worse in just about every way. And this is just performance, which in the vast majority of use cases also isn't the primary driver; ergonomics is. Linked list implementations are almost always far harder to read and maintain than other forms of list-oriented implementation.
+
+Anyway, far be it for me to debate with the inventor of microservices...and I must be one of these modern engineers, because I simply don't understand where you're coming from here. I've mostly used linked lists when doing stupid LC challenges involving reversing them. In the real world in which I live, array-based solutions are king.
+
+R from pe:
+
+Adam Machanic The point of Java List Interface is not handling implementation, no code difference after the declaration. We can switch implementations changing one word on one line.
+
+- Data structures are much more fun in C. Arrays were popular back when memory was limited, index was multiplier to find address of entry. I often created LinkedList for forward-only iteration, and considered Doubly Linked Lists as usually wasting memory. We built our own sort code instead of having standard functions. We had not heard about "garbage collector".
+
+Ashley Frieze Ad hominem do not work with people (e.g. programmers) who understand logic.
+
+- My colleagues and subordinates love working with me. Everyone becomes more productive and happier.
+
+Yes, I used CSV with Header for multiple records while thinking about INI or HL7 for "single record with variable fields", but the single records in my business Web application always fit into 2 lines of CSV.
+
+- XML was not been finalized for another 2 years. JSON was invented several years later. What format would you have chosen if you had invented Microservices in 1997?
+
+20230622d
+
+---
+
+I just spent a couple days trying to read my Comments from last August (8 months ago). LinkedIn has an Activities page demonstrating how to allegedly provide access to data while blocking that access by providing only unusable software.
+
+I could teach a class on UI Design using the LinkedIn Activity page as a great counter-example:
+
+- Repeatedly duplicates same data over and over again ad nauseum.
+- No filters.
+- No paging.
+- No skipping to desired data.
+- Eats the browser and computer's memory.
+- Crashes browser/computer.
+- Visitors easily bump unmarked areas which leave the page.
+- Leaves page without warning.
+- Returning to the page does not return to what was last seen.
+
+The Activities page is like Baby's First Database-Driven Webpage. We expect awfulness like this on new websites created by amateurs who know nothing about databases, webpages, software, and humans.
+
+Hopefully this will get better if LinkedIn becomes popular and receives money to hire a Real Software Developer, either from selling services or getting bought by a company which has money. We should not expect that to happen. Websites need to be useful before anyone will spend money.
+
+--
+If you want your applications to not be terrible, hire a Real Software Developer.
+
+If you want your software to be great, hire me.
+
+20230411
+
+---
+
+Google and Meta only hire Modern Software Engineers. Just memorize useless algorithms to pass their silly quizzes.
+
+C++ is bad first language, uses very primitive OOP. Many books were written about how to workaround problems using C++ (see "Design Patterns" and "Gang of Four".) Do not learn OOP before mastering good programming.
+
+Java uses OOP, terrible Strict Type system, and Interfaces (bad solution for multiple inheritance).
+
+Learn Lisp (best programming concepts), C (how computers think), SQL (backend).
+
+JavaScript was acceptable substitute for Lisp before 2009 when the Prototype system was broken, and Array stopped being child of Object. JavaScript is mandatory for Web development so still needed.
+
+"Programmer" was once the title for anyone who understood computers. We knew the hardware, operating system, and how to create programs. I cannot imagine not understanding everything. Someone trying to become a Programmer now has many obstacles, especially the ability to look up answers and tutorials on the Web. GUI may be second obstacle; much easier to learn with single process command line.
+
+Software programming cannot be taught, because the most critical skill is learning how to learn by yourself.
+
+20221104
+
+---
+
+Originally, writing code during hiring process proved candidate can write code, never over 5 minutes. Then non-programming interviewer combined code question with trick questions to be stress test. Then HR realized coding quizzes could torture those hated highly-paid weirdos. Now tricky coding questions focus on Data Science algorithms never used in my hundreds large professional software development projects.
+
+If an interviewer is unable to tell if candidate is programmer from conversation, verbal FizzBuzz test can be applied. Never over 5 minutes.
+
+Walk away if asked to whiteboard, share screen, go to a website, etc. The company does not know how to hire good software developers, hence even if hired, all your teammates are incompetent.
+(Assume you use all good luck of accidentally hiring someone competent.)
+(Never share your screen if company did not provide hardware.)
+
+A large consulting company does "technical interview" using script of Java and JavaScript trivia questions, which only prove someone memorized trivia.
+
+- I did their identical "technical interviews" 4 times in past week. Except last "interviewer" asked to share my screen. I refused. He did not offer to share his screen (or enable his camera.)
+
+20220223
+
+---
+
+Thoughts: 1. Always test your code. Always test your code works in the application. Do not equate "testing your code" with evil "Automated Tests" not useful for Software Developers. 2. CRUD is bad. Should be CRUH. Software Developers never delete data. We hide data. Add a dtDeleted column. Add a View which hides all rows where dtDeleted is not null (better than adding "AND dtDeleted IS NOT NULL" to every statement.) 3. Current Web architecture is (Browser) Client UI, Client-side Middleware (JavaScript), Server-side Middleware (Java, PHP, etc.), (Server-side) Backend (PostgreSQL). Traffic between Server-side and Client-side should be limited; send everything possible in first response. Soft validation on Client-side. Hard validation on Server-side, often in both Middleware and Backend.
+
+X. Every project should include instruction with automation of every possible process for creating development and production machines. Developers and QA test outside production on machines created using the production instructions. Often Devs use old or virtual servers. QA uses hardware exactly matching Prod.
+
+20231120
+
+---
+
+My 5 Software Goals are:
+Useful Usable Fast Secure Maintainable
+
+You must have read this a few dozen times this year, and scores last year. I state it often because everyone on LinkedIn needs it repeated at least weekly.
+
+20230623
+
+---
+
+These words sound great. I fear the next suggestion will be awful advice making code more complex. Probably the early mention of Clean Architecture, a term used by Bob Martin, who proposed fantastic ideas during 1990s, obviated when he helped design Agile to destroy software development. His advice was based on C++ and should not be applied to Java and newer systems.
+
+Programmers should quickly find relevant code and make changes. Side-effects should be obvious. Maintainable is 5th Software Goal. This pretends Maintainable should be first. Useful and Usable have much higher priority.
+
+20230622
+
+---
+
+Jack Pines I hope someday you meet a Real Software Developer. We do not waste time like the Post suggests. Modern Software Engineers are 0×: any accidental productivity is negated by problems caused and management headaches. By definition, a Real Software Developer is 1×. A 10× Real Software Developer does enough work in 4 hours to keep management happy. By lunchtime Monday, required work for week is done. Tuesday we finish everything we want to do, like reread all code in a library or research (i.e. play with) new software. We have lunch and dinner with friends every day. Wednesday, Thursday, and Friday, we try to get friends to join us going to afternoon movies or playing multiplayer video games. Finding people able to have free time when we want to play is more difficult than finding time for friends, family, or hobbies.
+
+For most of my life, every day I read an entire novel and played guitar for at least an hour. On business days, I went out for 2-hour lunch with colleagues and nice dinner with friends. On weekends, meals were homemade by friends/family.
+
+Employers complain I complete projects too quickly and too well; they have trouble billing enough hours, and lose work doing maintenance or support.
+
+20231229
+
+---
+
+You probably get the Single Responsibility Principle wrong.
+
+Uncle Bob wrote about SRP first in 2002, and talked about before hand.
+
+It does not mean a class does only one thing.
+
+The responsibility referred to is external, not internal.
+
+The "axis of change" refers to the actors/stakeholders using your "module". Department A wants changes, and they could affect other departments using your code. This shared module violates the SRP.
+
+Controversial conclusion:
+shared/common services violate the SRP. Share the data of service A with service B via events, and populate services B data store with this data. Do not have other services, etc, call service A for their data.
+
+6mo
+You can separate data from behavioral, keep them in the same file and name space them together. And they fulfill single responsibility
+
+Behaviors can have hard coded never changing data like (some) enums
+
+Data classes & collections can have functions (translate or UI formatting of data, for example). Not every function is a behavior
+
+Not that you have to follow this pattern or agree
+
+But keeping purpose together is important. And that is an external perspective. Not internal
+
+R:
+
+Struct is grouped data. Class is Struct plus functions. I believe Structs are placed on Heap. A Struct containing only native data types might fit on Stack, but would be forced onto Heap if any element belongs to a Class. Should not matter since languages distinguishing between Structs and Classes require manual memory management, not automatic with garbage collection.
+
+I cannot imagine (at the moment having barely woken up) how using getters could violate any paradigm using objects. Maybe my next employer will use an FP language where getters are discouraged. This year, nobody cares enough about great software to hire me.
+
+I believe SRP was a joke that persisted, taken seriously only by people who do not understand software or technical humor. I have not learned of any situation where attempting SRP did not make the design worse (more complicated).
+
+20230914c
+
+Each Class providing information for more than one purpose/team should have distinct functions even if the expected data is the same?
+Employee.getSalaryForEmployee()
+Employee.getSalaryForManager()
+Employee.getSalaryForHR()
+Employee.getSalaryForPayroll()
+just in case one of them someday decides they want a different format? That violates YAGNI which is a much better concept than "hurts to think about people pretending to develop software thinking about SRP".
+
+My guess is Bob invented SRP to confuse people who should not be developing software enough so they do not attempt to develop software. The usual "each Class does only one task" makes a complicated mess. Your "each Function is only used by one caller" makes a highly repetitive mess. Both are the opposite of good software design.
+
+20230914
+
+In the progression of programming paradigms, data moved from everything global, to structs, to classes with public fields, to classes with getters. Using getters allows easier security, caching, and variable output, such as getPrice() giving different results for each customer to include taxes and discounts.
+
+I had not discovered that Modern Software Engineers created a rule discouraging getters. Should have expected one since they have a rule discouraging every concept of good design, then imagining new rules to encourage bad design. Do Modern Software Engineers know what is a struct?
+
+Good design of a Class is constructor(s), at least one getter, and optionally transformation functions. Setters are the most basic transformations usually indicating bad design.
+
+Getters are mandatory for good design.
+
+20230914b
+
+That entire page is terrible advice. The argument against Setters and Getters explains why Setters are bad, which I already mentioned, with no suggestion why Getters should be discouraged.
+
+I am probably incapable of understanding your logic. As mentioned in my original Comment, if I want to know an employee's salary, I call Employee.getSalary(). I cannot imagine complicating a program by "communicating through messaging." I also have difficulty understanding why I complete everything much faster than everyone else. The distribution of terrible "rules" like that webpage may explain how I went from 20× faster to 200× faster, while keeping my programs understandable (making managers believe they can program) and easy to maintain (pretending someone will someday want to change my software.)
+
+20230914d
+
+When I learned Smalltalk, it was an Object programming language: everything must be an Object. Like Functional programming languages require everything to be a Function. Object-Oriented Programming (OOP) was bastard hybrid adding Classes to Procedural programming (C++, Java).
+
+Wikipedia now states Smalltalk is OOP, which it not. History was rewritten so "Object programming languages" no longer exist? Is that marketing because most software writers cannot understand anything besides OOP?
+
+Actor model is different threads should communicate using message queues to reduce race conditions (but idiots can always create a better race.)
+
+Opposite of declarative languages (allegedly SQL, FP) is imperative languages (everything including procedural and OOP.) The only true declarative language (which I remember) solved math problems. Even the name "programming" implies list of ordered events/instructions i.e. imperative paradigm.
+
+The Post redefines SRP to mean each function is used by only one caller. Which violates my primary purpose of using functions to simplify by reusing code.
+
+I know software development is easy.
+Without useless complications, everyone else might duplicate my productivity or great results.
+
+20230915
+
+---
+
+One of the most overlooked jobs of a team lead on a mature codebase:
+
+𝗚𝘂𝗮𝗿𝗱 𝗮𝗴𝗮𝗶𝗻𝘀𝘁 𝗮𝗻 𝗲𝘅𝗰𝗲𝗹𝗹𝗲𝗻𝗰𝗲 𝗰𝗮𝘀𝗰𝗮𝗱𝗲.
+
+Symptoms of an excellence cascade:
+
+• Working around the architecture instead of within it.
+
+"𝘛𝘩𝘪𝘴 𝘪𝘴 𝘢𝘯 𝘰𝘶𝘵𝘥𝘢𝘵𝘦𝘥 𝘱𝘢𝘵𝘵𝘦𝘳𝘯 𝘢𝘯𝘺𝘸𝘢𝘺"
+
+• Closing tickets by treating the symptoms instead of the disease.
+
+"𝘓𝘦𝘵'𝘴 𝘫𝘶𝘴𝘵 𝘦𝘹𝘵𝘦𝘯𝘥 𝘵𝘩𝘦 𝘵𝘪𝘮𝘦𝘰𝘶𝘵 𝘰𝘯 𝘵𝘩𝘢𝘵 𝘳𝘢𝘤𝘦 𝘤𝘰𝘯𝘥𝘪𝘵𝘪𝘰𝘯 𝘢𝘯𝘥 𝘤𝘢𝘭𝘭 𝘪𝘵 𝘢 𝘥𝘢𝘺"
+
+• Pinning dependencies on old versions, with disappearing online documentation and breaking install scripts.
+
+"𝘋𝘰𝘯'𝘵 𝘦𝘷𝘦𝘯 𝘵𝘳𝘺 𝘵𝘰 𝘳𝘦𝘣𝘶𝘪𝘭𝘥 𝘪𝘵, 𝘫𝘶𝘴𝘵 𝘤𝘰𝘱𝘺 𝘪𝘵 𝘧𝘳𝘰𝘮 𝘫𝘰𝘦'𝘴 𝘤𝘰𝘮𝘱𝘶𝘵𝘦𝘳"
+
+• No longer discussing code style and implementation details in code reviews.
+
+"𝘐𝘧 𝘪𝘵 𝘸𝘰𝘳𝘬𝘴, 𝘓𝘎𝘛𝘔"
+
+And the ultimate symptom, the justification used in all the above cases:
+
+"𝗪𝗲 𝗮𝗿𝗲 𝗴𝗼𝗻𝗻𝗮 𝗿𝗲𝗳𝗮𝗰𝘁𝗼𝗿 𝗶𝘁 𝗮𝗹𝗹 𝗮𝗻𝘆𝘄𝗮𝘆".
+
+No you won't.
+
+Clean your s\*it now, or you'll end up living in it.
+
+R:
+
+You understand software development. You understand basic priority beneath all my software development management practices. This is what I have spent 2.5 years explaining, correcting the many bad practices everyone here insists on using to harm their software (or get everyone else to harm their software.)
+
+Strange, as your description/history implies you are a Microsoftie or Modern Software Engineer, both usually clueless about good software and good software development.
+
+This not a "job". This is basic trait of being Real Programmer.
+
+You are focusing on what not to do. While I spend much time writing "Do not do that", I know my 3 techniques for managing good software development, and have occasionally leaked the "secrets". They are the main selling point for my book so I explain them less than joining discussions of bad practices constantly espoused here.
+
+About your symptoms:
+
+1. Improve design. Improve code.
+2. Fix the problem. Do not patch.
+3. External dependencies are shortcuts to be removed as software matures.
+4. Code style is wasted effort. Formal Code Reviews are evil.
+
+- Discuss implementation details? Why? Improve code.
+
+5. Refactoring is silly. Constant weeding. Constant improvement.
+
+Spread the good word.
+
+20231127
+
+---
+
+I agree with interviewer's first two answers.
+
+1. Communication is important, demonstrated in all writing and conversations. A hiring manager had me read a paragraph testing my speech, and write an email handling a scenario.
+2. My biggest selling point is constant history of hundreds projects successful by every metric. I learn everything each project needs. I get people to contribute and collaborate, even after they announce they want my project to fail. I do not care tasks are impossible, I do them anyway.
+
+3. Expecting work "under pressure" is bad management, and huge red flag for candidates.
+
+- My projects are completed well before deadlines. Take time to think. Good planning and good quality save time. Torturing candidates with trick questions or coding challenges makes the interview feel powerful, gains no useful information about candidates.
+- I was asked a trick question while interviewing for my first corporate job. I sat back, thought, gave an answer. Then asked if I was correct. Interviewer was confused because only people who already knew the answer gave correct answer; he was testing ability to work under pressure. I said that was how I handle pressure: think, answer, verify.
+
+20220323
+
+---
+
+I approve this message.
+I do not use "Walk through this", does not teach what they care about. I never ask about specifics from resume, or try to prove they lied.
+
+My questions are "Tell about yourself" plus variations of "Tell me a story". Natural stories are candidates saying, "I did this and that (huge important parts). I figured how to make this (tiny detail) to work in one-tenth the usual time," then rhapsodize for 10 minutes about the trials of getting that detail to work with the rest, often explaining potential alternatives of huge parts and why the final design was chosen.
+
+An interviewer kept asking "Walk through that" drilling 6 levels down when the third level was "1+1=2" simplicity. He was either high or testing how I handle frustratingly clueless people (while convincing me to never work near him).
+
+If you talk to me for 10 minutes, you will hire me. After a month, you will create a name for "better than A1" while having fun in super productive team.
+
+- Coding Assessments started as fun bonding at end of interview, not part of decision-making.
+- Evil HR uses them to torture programmers.
+- Coding Assessments reject Real Programmers, allow hiring of imposters.
+- Hiring is not affected by scale.
+
+20240113
+
+---
+
+Do smart employers use Rust? I would enjoy my next employer wanting software in Rust. Employers know I quickly improve everything, no specific experience required.
+
+"Most loved programming language" means unused. Programmers enjoy programming, dislike maintaining programs. When a language is new, programmers want to use it, or use it to write new programs. If programs survive to need maintenance, programmers stop liking it. When most projects are maintenance, the language migrates to the "Hated" list.
+
+- Rust remaining "most loved language" for 7 years implies nobody is maintaining Rust code. Could be that Rust programs are great and rarely need maintenance. Or Rust programs do not get used so never need maintenance.
+
+2. NULL allows problems. OPTION is verbose workaround to avoid typing N U L L, but still allows null values so still bad.
+
+3. Compiler should compile. Format prettifies code. Analyzers can warn about poor code and suggest improvements. Each program has one purpose.
+
+- Another LinkedIn poster told about terrible suggestions that the Rust compiler wants to enforce.
+
+5. Immutability creates bad code to violate good programming practices. FP encourages this, and makes the compiler fix bad code.
+
+20230218
+
+---
+
+You are Real Programmer. Do not envy useless Modern Software Engineers.
+
+- Programming cannot be taught. Prime skill is teaching yourself quickly. You did.
+
+Data Structures: FIFO, FILO, or sorted; allow nulls and/or duplicates; separate Key from Value. All you need.
+
+Memorizing algorithms wastes brain space. Fine for useless Modern Software Engineers.
+
+LeetCode is fun. Do 1-2 every year, unless busy writing useful code.
+
+Only 100 companies are Big Scale; learn if needed.
+‐ FAANG is 5 companies dedicated to not hiring good programmers. Forget them.
+
+Real Programmers quickly recognize other Real Programmers.
+
+- Most companies are desperate to hire us, while using hiring systems specifically designed to reject us. HR is evil.
+
+Everyone knows I will make their dreams come true, and then reject me specifically because I will make their dreams come true. I keep hoping to meet a sane employer.
+
+To get a job, I will hide:
+
+- all Microsoft: headaches for low pay.
+- Web Front-end: dominated by Modern Software Engineers making messes, low pay.
+- my long history of success, everything older than 10 years.
+- most of my skills: executive, business strategy, etc.
+
+Say anything to pass Recruiters, then hope for a rational Hiring Manager.
+
+20230209
+
+---
+
+Formal Code Reviews are bullying. If you take them personally, they win. If anything mentioned is useful, remember. Spend time trying to get job in less toxic team.
+
+Good reviewing of code is everyone reading the entire codebase. New programmers start with useful libraries and stable code.
+
+- Senior programmers (already read all old code) read code that changed recently. Never focus on lines just committed. Always read entire class/file. Think holistically about design. Usually improvements happen while adding new functionality. Knowing entire codebase is important. Randomly reading files gives a different perspective.
+
+20220209
+
+---
+
+We do not share the same definitions. The 3 types of Data Repositories are: Data Mart, Data Warehouse, Data Lake. The first two are specifically for Business Intelligence: reports, analytics, chart data. Data Lake is everything (e.g. emails, files containing text) which was not organized into Databases.
+
+Constraint Validation and Persistence Layer are not in Data Repositories:
+
+- Constraint Validation must be applied when data is added to Application Databases, which are source aggregated into Data Warehouses or summarized into Data Marts.
+- Persistence Layer is part of Middleware, front-side of connection to Backend Databases. Repositories connect to the back side.
+
+I have no clue why you believe Repositories should be in-memory or have methods to change anything. Data Mart and Data Warehouse are built using Databases as source. Data Lake might include indexes to files without copying to new location.
+
+Would you please rewrite this to use correct terms and make sense? I would rather read good ideas or correct bad ideas than teach basic terminology of the subject allegedly being discussed.
+[Extra humorous because the first line mentions DDD which states everyone should use common language (definitions).]
+
+20230531
+
+---
+
+I expected definition of Data Repository from Data Architect perspective. I knew you were not discussing Source Control Repository from Programmer perspective.
+
+DDD definitions:
+Memory Collection: Objects without persistence using...
+Memory Implementation: RAM on one server.
+Repository: Persistent Collection using...
+Concrete Implementation: Data Store - relational or document Databases, external systems (connected by Services), etc.
+Aggregation: Save entire Object, despite separation into several memory variables.
+
+DDD Repository = Backend = persistent data stores = databases plus alternates, e.g. Services, files, enterprise integration. etc.
+
+DDD diagram ignores different systems/people handle work merged into "Repository":
+
+- Constraint Validation can be handled by Middleware or Backend Repositories, often both.
+- DDD diagram does not specify (Middleware) Persistence Layer wraps (Backend) Repository, so include in DDD Repository.
+
+Diagram does not have Data Architect separation between Database and Data Mart for analytics/reports, so expectation is inclusion in Repository. If distinguishing Repository does not handle reports, nice to add a Data Mart/Analytics bubble behind Repository.
+
+20230601
+
+---
+
+I agree with your conclusion despite incorrect assumptions. OOP was technique to blackbox functions; "modeling real objects" was later used to teach Classes and Inheritance. DDD is nice soundbite, bad idea.
+
+DDD is from COBOL mindset that software code should be readable by normal people, expecting normal people could create software. Has not worked. May never work. Too many English words have multiple definitions:
+
+- What is an "Account"? One login? One financial storage unit? One customer's relationships with our salespeople?
+
+OOP evolved poorly. C++ demonstrated including functions in structs helped blackbox code, but C functions are not top-level objects so added new keyword "class". Java avoided multiple inheritance problems by adding bad implementation of "Interface". Every newer/modified language copied Java. Fortunately the fix is easy\* and can apply retroactively backwards-compatible without breaking 3 decades of software.
+
+- Easy technically. I have no clue how much effort would be required to make Oracle care about improving Java.
+
+20231008
+
+---
+
+Backend Developers do not see this error. This error is from Middleware Programmer messing with Front-end Developers, who only see the error in browser consoles. The error is not logged. The error cannot be caught. JavaScript can only handle as a request that timed out after minutes, even though the browser console immediately showed the error.
+
+The error can be fixed by Middleware Programmers. Either by sending the correct permissions from the source server, or by adding a bypass. The error is browsers trying to limit cross-site scripting (XSS) attacks.
+
+Not using browsers avoids the problem. Server to server communication has no problems. Have the current "origin" server retrieve whatever is desired from the source server and send to the browser.
+
+CORS is 7 lines of HTTP configuration between server webpages and browser requests. Wikipedia lists them. Mastering CORS is mostly knowing techniques for bypassing the browser security.
+
+20230530
+
+---
+
+Bad definition. "Junior" means requiring supervision. "Real Programmer" means autodidact able to quickly learn anything. All Real Software Developers are Real Programmers. We are always learning (then try to forget so we can learn new versions without interference from obsolete knowledge.)
+
+Modern Software Engineers try to find rules in a field where misapplying rules is dangerous and impossible to avoid. One attribute of Modern Software Engineers is they must be taught: take classes, follow tutorials, etc. While a Modern Software Engineer spends 2 months "learning" a new technology, the Real Programmer started using it, discovering its uses and issues. Using a technology I never heard about does not slow my incredible productivity.
+
+You begged the question:
+
+- You assume Software Engineering exists.
+- You redefined Junior to mean Beginner.
+- You assume not knowing a technology requires "learning" to be able to productively use it.
+
+I have been a top Software Developer since shortly after I joined the corporate world. I do not bother exploring much new technology, just use it when needed.
+
+I learned to write novels and play drums. Growth. When I professionally use those skills. Unrelated to software.
+
+20230329
+
+---
+
+You describe "untrained", not "careless". Half programmer time should be reading code, researching methods, and thinking. Of the half spent writing code, half should be rewriting.
+
+Always fix before adding. Always simplify. Immediately improve architecture. Immediately refactor.
+
+Writing good code makes time constraints disappear. I have never come close to missing a deadline.
+
+One day, I wrote 3000 lines to use 2 existing classes. The next day, I deleted those 3000 lines, deleted one class and half the other, wrote 500 new lines, and spent afternoon replacing all references to those classes.
+
+An existing architecture specified a large number classes (Shotgun Surgery) for each Page (actually a React Component.) I extracted standard functionality into a parent class. First pass for Pages without customization. Second pass refactored Pages needing customization. Finished in one day. Removed hundreds classes and many bugs. Allowed easier expansion and maintenance.
+
+Developers can be taught to never "make bad code." They must be happy when releasing code. They should not be unhappy reading code, although imagining improvements shows growth.
+
+--
+"dept" abbreviates "department". I believe you meant "depth", twice.
+
+20210721
+
+---
+
+How To Become A Good Programmer
+
+Learn Prototype-based programming first, either JavaScript\* or Lisp. Feel the power.
+
+In JavaScript, everything is an object, can be copied to new object:
+
+- copies changeable properties/methods of parent,
+- sharing prototype properties/methods with parent.
+  Objects can be added to other objects.
+  Methods can be changed.
+
+* I removed my example code because Firefox no longer runs properly. Seems JavaScript was lobotomized. Which might change JavaScript from "as good as Lisp" to "as bad as OOP languages".
+
+Prototype-based programming is the most powerful/flexible paradigm, allows less powerful paradigms. JavaScript expects Prototype-based programming, but allows OOP. FP, Declarative, Procedural, and all the other programming paradigms. Avoid restrictive "class" and "let". Be careful to think using prototypes, not a lesser paradigm.
+
+Second, learn SQL for Declarative programming, and good database design.
+
+Third learn C for Procedural programming and how computers think.
+
+Finally choose a middleware language (e.g. Java) to learn restrictions of OOP, FP, or whatever your employer requests.
+
+---
+
+-- Software Comments Are Important --
+Some Modern Software Engineers have decided software code should not contain comments. I do not know the source of this delusion. Please help teach them.
+
+Comments are important. Every programming language allows comments, includes syntax allowing text for humans which computers ignore. The only somewhat-useful software-related format without comments is JSON, designed specifically for Modern Software Engineers incapable of understanding XML (which allows comments).
+
+Code is for computers. If all your code is easily understood by humans, your "programming language" is better than English, because humans cannot even understand languages designed for them.
+
+Most people state I write well. Yet other people become upset because they believe I suggested exactly the opposite of what I wrote. I write very precisely because I often write for computers which follow my instructions exactly. If a computer does the opposite of my intentions, my writing is at fault, not the computer's brain (unless using Microsoft platform.)
+
+Good software writers use good names for classes, methods/functions, variables and their variants. That helps readability, but is not enough. Most of my comments are section headers, like chapter titles in a book. Even if you easily understand every sentence, a chapter title or short summary can be very helpful.
+
+Modern Software Engineers promote bad programming, recommend minimal changes, do not allow improving code or names. Adding a comment can offset their bad names. If the Modern Software Engineers let you add comments.
+
+No comments indicates bad programming. Run away. If you stay, first insist you can add comments. Then fix poor names. Then try to fix bad code and bad patterns.
+
+Or have fun trying to find every Code Smell.
+
+[Do not tell Modern Software Engineers about Code Smells. They would make a rule for every Smell. They are incapable of understanding when smelly code is fine.]
+
+No comments = bad code.
+
+20220918
+
+---
+
+First 2 Posts in my Feed: "Modern Software Engineers do not understand critical SQL Databases from 1980s" and "Modern Software Engineers spend first 2 months attempting to understand code from 2005." LinkedIn would be great for esteem issues (if I had any.)
+
+SQL is mandatory for Software Developers, because databases are critical to all software. SQL is so important that "NoSQL" means ignorant, incapable of understanding software, learning disabled, unintelligent, and other adjectives implying lack of technical credibility.
+
+Code from near 2005 is the easiest to understand, after disappearance of early cryptic languages, before the terrible practices and code of Modern Software Engineers. 1990s C, C++, VB might hurt Modern Software Engineers' brains. 2005 is Java and PHP, before 2010s difficult to follow AOP and FP.
+
+I wish I could impart some new great insight. Here is my Same Old Advice:
+
+- Hire Real Software Developers.
+- Real Software Developers understand good programming. They mastered 4+ non-Microsoft programming languages including C, SQL, and JavaScript.
+- If someone needs 2 months to understand enough to make changes, never allow them to make changes to your software. Not making improvements by second week suggests they do not understand software well enough to ever touch code without harm.
+
+--
+I start making small improvements on my first day. I need 2 weeks before suggesting large changes like improving database performance or fixing OOP design. I do not notice the big changes until discovering bottlenecks while making small changes.
+
+On a large platform used for multiple applications, I was taught how to add a form from new database table through middleware and Web Front-end. I followed my notes to create a second form. Then I redesigned the platform, reducing from much code in 21‐43 files to 5 (one file for each part of platform.) Ideal would be one file per form; baby steps.
+
+20230821
+
+---
+
+Mike V. I am working on books. Third is "How To Become Real Software Developer" with subtitle like "From scratch, or retrain if corrupted into Modern Software Engineer by college, bootcamp, or other unluckiness." Real Software Developers evolve from Real Programmers, first step. Real Programmers are autodidactic problem-solving text-lovers.
+
+Lock yourself in a room for a year with a *nix computer and manuals (not tutorials). *nix has man, bash, gcc, emacs. Install PostgreSQL, Apache httpd, Java SDK/Apache Tomcat, Mozilla Firefox. Teach yourself:
+
+1. Lisp: emacs includes Lisp. Might add another Lisp environment. Lisp is programmers' programming language, most flexible, most powerful. Learn to program well before being corrupted by OOP (or worse, FP).
+
+2. SQL: PostgreSQL includes SQL: databases, design, normalization, what should be done in backend.
+
+3. C: gcc compiles C: how computers think
+
+4. HTML/CSS/JavaScript is most Front-ends. Firefox opens HTML files.
+
+5. OOP: Java is foundation of OOP which is how most people think about programming. Tomcat is Java Web Server with hot loading
+
+Make a useful program or three using each. Then ask next step if my books are not available.
+
+20230821a
+
+---
+
+Advice for Software Developers:
+
+1. Code quality matters.
+
+- Dream about code.
+- If you did not discard your first attempt, that code is not good enough.
+- Never be afraid to discard/rewrite code. We have backup in source control (see #5).
+
+2. Think about everything.
+
+- Listen to others. Think about their ideas. Discard their bad ideas (like everything related to Agile).
+- Expect to hear "You think too much" from everyone, especially significant others. Pretend it is a compliment.
+
+3. Telepathy matters.
+
+- Business people cannot communicate what they need. Technical people cannot communicate. Learn to read minds.
+- Learn the business process being improved to realize the business people have no clue how inefficient is their standard process. Improve the process before creating software. Good software developers understand everyone's jobs better than they do. Never mention that to them.
+
+4. Document every process. Add design comments in code. Maintain an evolving email/wikipage for onboarders, the one time anyone reads documentation outside of code (because they do not yet have access to the code.)
+
+- Know that nobody reads external documentation. Do not waste time writing any. Unless getting paid and have no programming assignment or other interesting work (like sweeping mines.)
+
+5. git fails. Record your changes in text files as backup for when git fails today. You can avoid git failing today by not attempting to merge.
+
+- Fewer merges is always better. Never merge unfinished untested code. (That does not mean add Automated Tests. Delete all tests used for debugging before merging.)
+- Fondly remember Subversion.
+- Wonder whether companies switching from Subversion to git has exceeded a trillion dollars value lost. 2 trillion? 3? (See #2.)
+
+6. Master all the basics: Lisp, SQL, C, HTML/CSS/JavaScript, Java. Be confident you can master everything else as needed.
+
+- Specialization pays better, despite being less fun and requiring less brainpower. Experience with SAP, Salesforce, etc. are great for retirement, bad for your soul.
+
+7. Avoid Microsoft. Too many headaches for half the compensation. Better to remain unemployed than ruin your life.
+
+8. Avoid becoming a "Web Front-end Software Engineer", newest name for non-programming Web Developer. Their compensation decreases each year, may soon be as bad as Microsofties. Be careful not to accept a position with React or Angular in the title.
+
+- As a Full Stack Web Developer, you must master HTML, CSS, and JavaScript. Do not mention on the resume. Do not add when a recruiter insists those are important keywords. If a recruiter needs keywords, they are not a real recruiter able to tell hiring managers that you are great candidate who will make them happy. Every IT Manager knows Full Stack include Web client skills.
+- If no databases are mentioned, the person or position is not Full Stack.
+
+20230515
+
+---
+
+I believe in Open Source and sharing code. I believe in good programming. The two have diverged. The system was corrupted: Open Source repositories do not promote good programming/good software.
+
+Open Source contributors are proud to have contributed to 1000+ projects. Project is misnomer. Big projects are word processors, spreadsheets, databases, graphics, etc. = software for normal people.
+
+The bad projects are libraries of tools, not useful software. Non-programmers cannot use these project. Software writers can use these projects to add functions to their project, often another library.
+
+By current convention, each library provides one function. Many libraries are alternatives to other libraries. Each developer wants their own version of each function. Instead of improving his-useful-function library, create new my-useful-function library to not only contribute to one more project, but be the founder... of a project which should not exist, duplicates another project, and confuses Modern Software Engineers so their software uses both.
+
+Modern Software Engineers avoid writing code. To solve a problem, they search the Web. They find a library, add the dependency, copy the sample code. It works!
+
+- Repeat for the next problem. Eventually three dependencies were added handling the same problem, which could have been handled with native code.
+
+Many libraries are dependent on other libraries. The Modern Software Engineer who created a library followed the same process of finding libraries and copying the sample code.
+
+--
+"Useful functions" changes over time.
+
+My JavaScript library (2002) was self-sufficient and contained all functions I used at multiple clients, including "get" for XHR.
+
+jQuery (2008) was self-sufficient with two of my three major functions, simplified so less knowledge was expected, including "ajax" for XHR.
+
+In 2012, I retired my library because jQuery provided most of the same tools (and was finally not buggy.)
+
+In 2017, Safari was last major browser to add "fetch" to replace XHR. jQuery lost half its purpose. (The other half might already have been lost.)
+
+--
+How code is packaged/used/shared is the problem. Large multifunction libraries were bad when bandwidth was limited; this is no longer a problem. Many small libraries creates mess for developers and should be avoided; this is current problem.
+
+Java has Apache and Spring projects filling the functions which Sun/Oracle forgot to include.
+
+Where is one JavaScript library containing all currently useful functions not included by browser companies?
+
+NOTE: I am uncertain if I would ever add a library dependency. Most do something I would naturally write a few lines of code instead of searching for a solution requiring another dependency and extra lines of code. But I am Programmer and can program, unlike Modern Software Engineers.
+
+---
+
+Rafal Guenther Are you trolling? People understand my explanations. I used, taught, and warned about your "new concepts" long ago. The world should not have ignored my 1997 warnings about Services and 1999 warnings about social networks.
+
+My results are useful usable programs using simple bugless code. I simplify because easily followed code is better. IoC, Aspects, unneeded Classes/Functions/Interfaces, etc. obfuscate how code runs; and should be used only when required.
+
+I name "Factory, "Pool", "Iterator", and "Proxy". I used those four before I heard of Design Patterns.
+
+- The Pattern I implement most is Facade, hide complexity for simpler code. I never named anything "Facade". I created Facades before the Design Patterns book was published.
+- I never named anything "Singleton", "Decorator", or most Pattern names.
+
+SOLID is 4 bad concepts and L for good OOP Inheritance.
+
+Stateless services in Distributed Systems store Session Data using a simple database table as shared memory. Sessions are not Singletons/Server Variables.
+
+Never suggest Microsoft as reason anything is good. Safely assume the opposite.
+
+Programmers are problem solvers. Design Patterns work around problems. Well-known problems get solved.
+
+20230205b
+
+---
+
+I mastered JavaScript long ago. I cannot compare other JavaScript Programmers, never met any. Real Programmers consider me 100×.
+
+- I completed a 2+ months React assignment in 2 hours. React slowed my work, faster with pure JavaScript.
+- I am >200× productive as React Developers, because React Developers are Modern Software Engineers unable to program. What their team hopes to finish in a couple years takes me 2 weeks (All software development has minimum 2 weeks. I averaged <3 days per 6+ months assignment once I got moving.)
+
+For Software Developers: Programming is mandatory. JavaScript is powerful. Everything is possible and easy.
+
+For Modern Software Engineers: Programming is incomprehensible. JavaScript libraries make work possible, if they can mash together code found on the Web. Everything is difficult.
+
+If you want to develop software, learn to program. Start with Lisp or JavaScript as most flexible/powerful programming languages. Then SQL and C. Learn HTML/CSS/JavaScript. Then learn Java or another language to use professionally, because Web Front-end jobs no longer pay well because companies have noticed Modern Software Engineers have little value, soon to be as poorly paid as Microsofties.
+
+20230602
+
+---
+
+Software Developers should not use Linter and other tools while programming. Tools prevent learning to program well. Using most tools during software development make worse software.
+
+Using a Linter (while learning, but Software Developers are always learning) has several problems:
+
+- Reduces attention to detail. Good programming passes compiler on first try. Worst case should be a typo, not poor programming.
+- Developers do not know why rule exists: Software development does not have rules. Most rules were created by Modern Software Engineers who overheard Real Software Developers discuss what they did for a specific solution. Real Software Developers may never apply that "rule" again because it was not a rule, just a pretty brushstroke.
+- Developers do not know if rule should apply: Most "rules" will never apply again. Many rules are bad for most solutions. (Examples: Java Generics. Microservices Architecture. Webpages which are not webpages, just a container which slowly loads later. Using ===.) A beginner does not know using rules is probably bad. A beginner will never learn properly.
+
+The only way to learn programming well is to type code, every character needed, to make software. This teaches:
+
+- Attention to detail,
+- How to recognize errors.
+  [I see bugs. I glanced at code in programming language I did not know (at the time) and saw where the pattern broke, which fixed a bug on which the team had spent 2 months.]
+- How to recognize bad patterns: literal patterns made by the characters.
+  [I correctly explained how to improve performance in code I could not read on laptop screen from across a room. I knew the language and purpose.]
+- To need less code so less typing is needed.
+
+Using a Linter before commit allows programmer to justify why each "rule" does not apply to this code. Do not keep nagging so the programmer ruins code just to stop being bothered. Or worse, highlight the "error" distracting while programmer is working.
+
+Modern Software Engineers believe software is difficult.
+I believe software is easy.
+
+I know how to get others to believe software is easy by getting them to teach themselves properly. Linters and ML software writers create bad software. Human software writers using these tools while "learning" will never learn to recognize when software is bad.
+
+Long ago, I saw very bad software created by an early Modern Software Engineer who created software by applying Design Patterns as his rules. He usually chose wrong Pattern.
+
+When joining most projects, I reformat code while automatically fixing bugs and slowly improving bad design. Code is reduced/simplified depending on quality of programmers. I deleted 80% of React app, 50% of Microsoftie or PHP, 10%-40% Java (increases with Scala).
+
+Much of getting others to create good software is not using tools while programming. Then getting them to understand software is Art, so stop trying to apply rules.
+
+20230501
+
+---
+
+JavaScript changed from assumed skill to critical skill assigned to non-programmers.
+
+I learned HTML and JavaScript to create webpages, later CSS finished trinity for Web Development. JavaScript was denigrated as not a real language by real programmers and avoided by visual design Web Developers who preferred Flash for menus and animation.
+
+In 1997, I combined JavaScript, Flash (and more) to create "webpage gets data from server without refreshing." In 1999, Microsoft Internet Explorer added XMLHttpRequest; in August, I used XHR to build an application for a company standardized on MSIE.
+
+XHR was added to all major browsers by 2002, used by GMail in 2004, and renamed AJAX in 2005. AJAX became the buzzword for Web development, except...
+
+JavaScript was denigrated as not a real language by real programmers and avoided by visual design Web Developers incapable of learning to program. Libraries were created to make JavaScript easier: jQuery, Ember, React. To attract real programmers, "class" keyword was added with TypeScript, ES2015.
+
+In 2018, JavaScript added Web Components making most add-ons obsolete.
+
+JavaScript is prototype-based programming language awesome when used by a master, if you can find one.
+
+I am available.
+
+20210412
+
+---
+
+Dušan Knežević (Continuous) Delivery is to customers. The concept is to rush features (and bugs) into production due to misconception that customers prefer frequent updates over working software. If you ignore upsetting/losing customers, CD saves money by skipping QA testing software and Admins carefully promoting software to minimize business impact.
+
+Wasting effort constantly merging unfinished code is called Continuous Integration, a different bad idea.
+
+Programmers constantly build and test our code. When finished, we merge into trunk. That is our basic process, does not need a special name because is unavoidable.
+
+Programmers work in their personal environments. Nobody works/tests in DEV, is just a collection point from the programmers, which Devs clone for new branches, and QA clones to QA environment for testing and building releases. Unless a team is using a bad system like CD which eliminated QA.
+
+20230523
+
+---
+
+Post suggests "Hiring process takes time" but implies standard "one week" is not enough "time". Good Hiring Process:
+Monday: Manager receives approval for additional human resource, forwards approval to HR Aquisitions with requirements. HR checks for potential internal candidates, previous almost-hires, and sends to a couple favored external Recruiters.
+Tuesday: Manager interviews internal candidates. HR discovers if almost-hires are still available.
+Wednesday: Manager interviews almost-hires.
+Thursday-Friday: Manager interviews 3 candidates from each Recruiter.
+
+Each day, Manager updates candidate list.
+Cross off any not acceptable. Add compensation to be offered. Sort by preference. Mark any for immediate acceptance.
+
+- Until a candidate accepts, in order by preference, HR makes offers to immediate acceptance list. On second Monday, HR makes offers to rest of acceptable candidates. Rejections are sent as they become known (Manager crossed off, or a candidate accepts offer.)
+
+By Friday EOD, Manager has interviewed 6-20 candidates. If at least one candidate was not acceptable: requirements should be rewritten, Recruiters lose favored status, or HR needs training/replacement.
+
+The process endures from one day (immediate acceptance of internal candidate) to one week (interviewed all candidates before making offers).
+
+Even if Manager needs to rewrite specifications and start over, all candidates are informed of status by second Tuesday, within a week of first interview on first Tuesday.
+
+Is that too much "time"?
+
+20240326
+
+---
+
+You believe your focus should be first, despite obviously requiring guesswork if tried before Front-end.
+
+1. Design human interactions: purpose, data collected, possible actions.
+2. Decide what data is stored and for how long. Purchase history is kept related to Customer. Payment information is deleted after money clears.
+3. Now you can build your data stores: Cookies, text files, RDBMS, NoSQL, etc.
+4. Build everything else--the middleware--to connect Front-end to Backend.
+
+If you are not using this process to design your software, much work will be redone as you go back and discover necessary information. Building backend first usually creates a database with extra fields never needed or not needing long-term storage, rearranging Tables as you discover proper relationships between data, and trying to massage your mistakes into what should have been the first attempt. Example: Having "Address" in Customer or Order instead of distinct Table.
+
+You should enjoy being a DBA. Databases are fun, whether power of PostgreSQL, or silly workarounds needed for Microsoft SQL Server or MySQL.
+
+If you want to be the Architect designing software, you should learn how to be an Architect. Much is explained in this Comment.
+
+Enjoy!
+
+20240326
+
+---
+
+Bad solution to example. TDD starts with specifications for Go function, creates a test calling Go(Cities.NYC, Cities.SF), verify it fails, then adding enough code so the test passes. Then "Refactor" the application to allow choosing 2 cities as parameters. Of course, very likely the first customer will choose 2 different cities and have the directions drive them into an ocean or other large body of water, but that is CD (Customer Debugging) to be solve later, when code is in production, and the Modern Software Engineer has jumped to a different company.
+
+20240326
+
+---
+
+Do you want Full Stack Developer with 3 years total experience (imposter) or 3 years after achieving Full Stack title? You want them part-time, but Full Stack Developer should be the full-time Architect Manager assigning easy tasks to cheaper (part-time) workers.
+
+Why specify Full Stack without a Stack, then also request MERN Developer implying React, Node/Express, Mongo? Full Stack implies JavaScript for browser clients, SQL for RDBMS backend, and another programming language for middleware. Always been vague whether JavaScript for Node or Deno servers should count, but PHP is allowed so probably yes. But MERN Developers are specialized with their very limited skillset and do not also call themselves Full Stack Developers because no purpose having less-specific title.
+
+Should "freshers" have a title? Better to request people with no experience to audition as an Executive or Project Coordinator? How does Coordinator differ from Manager: same duties, less compensation? Why would any team/company accept a Manager or Executive with no experience?
+
+Hey you Full Stack MERN Developers with 3 years experience! You need to follow instructions from this person we hired with no experience. Good with you, right?
+
+20240326
+
+---
+
+Real Software Developers know clients do not know what they need and could not explain what they need if they knew. Never expect anything clients say to influence software development.
+
+1. Software Developers watch clients to learn their job.
+2. Then we Improve their job.
+3. We enforce the improved process with software so easy to use that mistakes are impossible.
+4. Clients smile and say, "That is even better than I expected."
+5. Clients do not bother paying because I made everything look easy and delivered too quickly so I starve after saving clients many millions of dollars.
+
+20240404
+
+---
+
+Kathleen Harrell C# was Microsoft's copy of Java, handicapped as Microsoft-only with buggy inconsistent dotNet libraries, and keeps getting worse. C# can be used without Microsoft Windows or dotNet, why bother? Much easier to use a better programming language.
+
+--
+To impress me? Have Programmer Brain. Create programs that matter to you, using several non-Microsoft programming languages, PostgreSQL when a backend is needed, and a couple Web apps using HTML/CSS/JavaScript.
+
+Challenges vary depending on technologies and skill level. I was unfortunate to do everything the hard way a couple years before each task became easy. I made games moving graphics using POKE a couple years before Sprites. I invented Microservices in 1998, the year before Microsoft released XMLHTTP. I solve problems declared "impossible" by IBM, EDS Technologies, Comcast, etc. I expect young people to be solving challenges not requiring me to pause, but difficult at their level. And excitedly tell their stories.
+
+A rather constant challenge is centering content on webpages, because some id10ts removed CENTER while CSS does illogical unnatural acts. I expect that story from beginner Web Developers, not wannabe professional Application Developers.
+
+20240404
+
+---
+
+Yes, master C, teaches how computers think. Unless you hope to do embedded programming, 2 small programs using Assembly Language are enough to understand registers and how memory worked circa 1980.
+
+I know DBA with long careers who do not know HTML. Application Developers should understand client-side Front-end and Middleware since that is half an application. And Backend since that is half of Server-side. I do not understand focusing only on Server-side Middleware programming and pretending to handle the most important part.
+
+- Front-end interfaces with humans. Backend stores data. Middleware connects everything, but some systems can almost eliminate it.
+  ‐ So I design Front-end, Backend, then Middleware: usually Server-side, then Client-side, as Client-side Middleware is easiest to change late in development.
+
+20240404
+
+---
+
+I did not realize programming is taught so poorly. I need this in my third book "How To Become A Real Programmer" so will explain here. For Application Development, watch the business process:
+
+1. Create a better screen. What are the actions? What is the data?
+2. Action becomes Function. Write the steps. What data is needed?
+3. Related data becomes Struct. Organize into logical sense, smallest useful collection. Sometimes one-to-one relationships are good. People need 0-1:
+
+- Login (nameLogin, password, id)
+- Employee (id, ssn, history(title, salary))
+- Home (id, addresses(location, dates)).
+
+4. (Optional for OOP) Structs + Functions = Class. Reverse functions using a Struct to belong to the Class.
+   promote(Person, title, salary);
+   becomes
+   Person.promote(title, salary);
+5. Add to normalized database.
+6. Build translation layer between database and objects.
+7. Build translation layer between Front-end View and objects.
+8. Tweak Front-end to be pretty.
+
+Never think about "abstracting concepts and abstracting processes" or "modeling". Abstraction is fancy name for Data (#3), database tables (#5), and View Model (#7).
+
+Real Software Developers build useful software, doing Actions to Data.
+
+20240716
+
+"Interface" should be dirty word. Java keyword was added as first attempt for OOP to avoid problems with multiple inheritance discovered with C++. Problems are obvious. Solution is obvious and backwards-compatible. I keep hoping Java will be fixed.
+
+C/C++ programmers jumped on Interface to continue their "everything requires 2 files: code and headers" system, already obsolete when (5Mhz 80286 computers in 1982?) compilers were fast enough to parse the code file for public/private signatures.
+
+C# copied Java, including all flaws, then added more flaws as only Microsoft can ruin software. Most newer OOP languages followed without thought. Why design a new language without fixing problems of its predecessor? (My learning progress through my first languages each fixed the worst problem of my last language.)
+
+Instead of progress, Java has been copying worst Microsoft problems, including intentionally added the old multiple inheritance problem that Java was invented to solve, for no benefits.
+
+"Interface" is silly name for parameters, inspired Recruiters' API misnomer, worse than Microservice. (Datapage is only accurate name.)
+
+Software is Data passing Front-end <-> Middleware <-> Backend. Simple and easy.
+
+20240716b
 
 ---
