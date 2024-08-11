@@ -2255,3 +2255,54 @@ Software is Data passing Front-end <-> Middleware <-> Backend. Simple and easy.
 20240716b
 
 ---
+
+Learn 5 basics of programming:
+Output, Input, Branch, Loop, Actions
+1. hello_world
+2. Get name. Hello Name.
+Storing values is part of Input.
+3. Get number. Number is more|less than 50.
+4. Get number. Count 1..number.
+5. Everything else. Building interesting programs:
+- Repeat I/O with: files, PostgreSQL, http.
+- Organization. Break code into reusable blocks, multiple files. If possible, blackbox into libraries.
+
+Start reading code in: existing project, sample program, or Wikipedia page. Then read manual.
+
+Learn standard conventions while learning syntax. 
+Discard bad conventions like braces wasting lines.
+Avoid using external libraries.
+Never copy code from anywhere.
+Never follow tutorials.
+Real Programmers are incapable of watching videos about programming.
+
+I learn most languages (Scala, TypeScript) working professionally so I read/fix large codebase while learning.
+
+I learned PHP in 1998, fixed PHP Web Store in 2002. Forgot. Chose PHP for large project from scratch in 2008. Discovered no basic framework so created my own, revised using to fix other people's apps over next decade. Few files: index (controller), security (login, permissions), menu, page builder, 4 databases (PostgreSQL, MySQL, MySQLi, MS-SQL).
+
+20240206
+
+---
+
+-- How To Design Software --
+1. Write down what you want new software to do.
+2. Draw (on paper) each screen where actions can happen. Try to combine screens. Do not follow the awful "Wizard" format where many screens are needed to complete one process.
+3. Collect all data to be saved for all those screens: Every field on every form. Every status which changes to determine which screen is shown next. Access control fields like who can do each possible step.
+5. Sanely normalize data into database tables. Build database.
+6. Create screens on computer, probably HTML/CSS. No code.
+7. Build monolithic middleware program to handle all business logic while moving data between backend and Front-end. Can be spaghetti code. Like first draft of a novel, purpose is to record all ideas.
+8. Organize your code. Move reused code into Functions. Group data into Structs. Move Functions working on a single Struct into the Struct to become Class.
+9. Improve backend performance. Move transactional database actions into database. Move other data actions into database if improves performance.
+10. Improve Front-end. Add client middleware to smooth experience, such as entering a field updates other options. (In 1998, I invented Microservices to update webpages without refreshing entire page, to duplicate the better experience of my non-Browser desktop programs and Lotus Notes apps.)
+
+The more applications you design, the closer your first attempt at new software will be to "good". Like novels, needs three:
+1. Your first product not being horrible is mostly luck.
+2. Second is when you realize the first was only usable due to luck, so you study the basics, often after choosing suboptimal option.
+3. Third is applying the basics from the start, produce something good while carefully thinking about every detail.
+4. Fourth is end of steep learning curve. Have enough experience to produce good results in reasonable time. Will continue to slowly improve as you solve more different problems.
+
+Do not read about "Architectures" until you have completed three applications. Most of the Architectures people discuss on the Web were only good for one of the largest scale applications, and are being misapplied to normal scale applications to confuse software writers and extend deadlines for years. Facebook, Google, Netflix, Twitter, etc. each had differences needs solved with different Architectures. Do not choose one of those for your app hoping for a few thousand customers in a few years.
+
+Do not worry about Containers until your monolithic server indicates performance may soon suffer, when Admins warn an app is using 20% resources. Then optimize the poorly performing function before thinking about adding "hardware" (processing power). 80% is fine, 90% is worrisome. If you optimize whenever crossing 20%, you can have your massively-distributed container-based system ready before reaching 80%.
+
+---
