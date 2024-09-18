@@ -1,4 +1,4 @@
-Internet Revolution arrived at maturation of popular programming languages with twin goals of power/flexibility (e.g. Lisp) and readability/maintainability\*. Until 2000, many new languages arrived and became popular. Perl (born 1989) and Python (born 1991) battled until Java (born 1995) dominated. Despite attacks from BigTech (IBM, Microsoft, Google, etc.), Java is still most popular platform.\*\*
+QQQInternet Revolution arrived at maturation of popular programming languages with twin goals of power/flexibility (e.g. Lisp) and readability/maintainability\*. Until 2000, many new languages arrived and became popular. Perl (born 1989) and Python (born 1991) battled until Java (born 1995) dominated. Despite attacks from BigTech (IBM, Microsoft, Google, etc.), Java is still most popular platform.\*\*
 
 In 2000, Java finally won. Used barely a couple years. Had few tools. No framework\*\*\*.
 
