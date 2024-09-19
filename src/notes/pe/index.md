@@ -2285,6 +2285,7 @@ I learned PHP in 1998, fixed PHP Web Store in 2002. Forgot. Chose PHP for large 
 ---
 
 -- How To Design Software --
+
 1. Write down what you want new software to do.
 2. Draw (on paper) each screen where actions can happen. Try to combine screens. Do not follow the awful "Wizard" format where many screens are needed to complete one process.
 3. Collect all data to be saved for all those screens: Every field on every form. Every status which changes to determine which screen is shown next. Access control fields like who can do each possible step.
@@ -2296,6 +2297,7 @@ I learned PHP in 1998, fixed PHP Web Store in 2002. Forgot. Chose PHP for large 
 10. Improve Front-end. Add client middleware to smooth experience, such as entering a field updates other options. (In 1998, I invented Microservices to update webpages without refreshing entire page, to duplicate the better experience of my non-Browser desktop programs and Lotus Notes apps.)
 
 The more applications you design, the closer your first attempt at new software will be to "good". Like novels, needs three:
+
 1. Your first product not being horrible is mostly luck.
 2. Second is when you realize the first was only usable due to luck, so you study the basics, often after choosing suboptimal option.
 3. Third is applying the basics from the start, produce something good while carefully thinking about every detail.
@@ -2304,5 +2306,26 @@ The more applications you design, the closer your first attempt at new software 
 Do not read about "Architectures" until you have completed three applications. Most of the Architectures people discuss on the Web were only good for one of the largest scale applications, and are being misapplied to normal scale applications to confuse software writers and extend deadlines for years. Facebook, Google, Netflix, Twitter, etc. each had differences needs solved with different Architectures. Do not choose one of those for your app hoping for a few thousand customers in a few years.
 
 Do not worry about Containers until your monolithic server indicates performance may soon suffer, when Admins warn an app is using 20% resources. Then optimize the poorly performing function before thinking about adding "hardware" (processing power). 80% is fine, 90% is worrisome. If you optimize whenever crossing 20%, you can have your massively-distributed container-based system ready before reaching 80%.
+
+---
+
+For Application Development, watch the business process:
+
+1. Create a better screen. What are the actions? What is the data?
+2. Action becomes Function. Write the steps. What data is needed?
+3. Related data becomes Struct. Organize into logical sense, smallest useful collection. Sometimes one-to-one relationships are good. People need 0-1: 
+- Login (nameLogin, password, id)
+- Employee (id, ssn, history(title, salary))
+- Home (id, addresses(location, dates)).
+4. (Optional for OOP) Structs + Functions = Class. Reverse functions using a Struct to belong to the Class. 
+promote(Person, title, salary); becomes Person.promote(title, salary);
+5. Add to normalized database.
+6. Build translation layer between database and objects.
+7. Build translation layer between Front-end View and objects.
+8. Tweak Front-end to be pretty.
+
+Never think about "abstracting concepts and abstracting processes" or "modeling". Abstraction is fancy name for Data (#3), database tables (#5), and View Model (#7).
+
+Real Software Developers build useful software, doing Actions to Data.
 
 ---
