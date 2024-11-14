@@ -5,9 +5,11 @@
   "repository": "git@github.com:Lvlad27/Data-Structures-Algorithms.git",
   "author": "Vlad Leontescu <lvlad27@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
     "jest": "^29.7.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "typescript": "^5.6.2"
   },
   "scripts": {
     "test": "jest"
