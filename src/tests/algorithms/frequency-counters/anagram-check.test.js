@@ -1,4 +1,4 @@
-import { anagramChecker } from "./anagram-check";
+import { anagramChecker } from "../../../dsa/study/algorithms/frequency-counters/anagram-check";
 import { expect, test } from "vitest";
 
 test("check anagram", () => {
