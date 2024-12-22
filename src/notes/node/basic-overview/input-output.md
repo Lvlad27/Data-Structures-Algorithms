@@ -7,7 +7,6 @@ First, when your computer (or a program) tries to get information from a resourc
 _Example in JavaScript_:
 
 ```js
-Copy code
 const data = fs.readFileSync("file.txt"); // This blocks the code until the file is read
 console.log("Data from file:", data); // Only runs after the file has been read
 ```
