@@ -56,17 +56,35 @@ class LinkedList<T> {
    *    - vei compara curr.value cu valoarea elementului care trebuie ștearsă
    * 4) Ajustează pointerii "next" corespunzători pentru ca nodul șters să nu mai facă parte din lanț
    *    - prev.next = curr.next pentru a sări peste nodul care trebuie șters
-   *    - curr.next = null pentru a evita o scurgere de memorie, deoarece limbajul poate s
+   *    - curr.next = null pentru a evita o scurgere de memorie
    */
   
-  delete(valueToDelete: T) {
-    if (this.head.value === valueToDelete) {
+  delete(valToDelete: T) {
+    let curr = this.head;
+
+    if (curr?.val === valToDelete) {
+      this.head = curr.next;
       curr.next = null;
       return;
     }
 
-    let curr = this.head;
-  }
+    let prev = null;
+
+    while (curr) {
+      if (curr.value === valToDelete) {
+        break;
+      }
+      prev = curr;
+      curr = curr.next;
+    }
+
+    if (!curr) {
+      return;
+    }
+
+    prev.next = curr.next;
+    curr.next = null;
+ }
   toString() {}
 }
 ```
