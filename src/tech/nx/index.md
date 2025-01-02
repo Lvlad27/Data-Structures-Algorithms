@@ -4,10 +4,10 @@ In Nx, the project.json file is used to define the configuration for each projec
 
 ## Basic structure of project.json
 
-```
+```json
 {
   <!-- The name of your project, which is used to identify it within the Nx workspace. -->
-  "name": "your-project-name", 
+  "name": "your-project-name",
 
   <!-- The root directory of your project relative to the workspace's root. -->
   "root": "path-to-project-root",
@@ -37,6 +37,7 @@ In Nx, the project.json file is used to define the configuration for each projec
   "tags": []
 }
 ```
+
 ### Common Options
 
 - **build**: Compiles your application into a format ready for deployment (e. g., optimized JavaScript, CSS, and HTML files).
@@ -61,4 +62,3 @@ Configurations allow you to define different sets of options for your targets. A
 
 - **development**: Usually the default configuration for local development. It’s optimized for speed and debugging.
 - **production**: Optimized for performance, typically with features like minification, dead code elimination, and source maps turned off.
-
