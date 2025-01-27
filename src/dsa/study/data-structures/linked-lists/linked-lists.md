@@ -3,19 +3,20 @@
 O listă înlănțuită este o structură de date liniară și omogenă alcătuită dintr-o listă de elemente denumite noduri care au ca structură o valoare și o referință (pointer) către următorul nod. Este o structură de date necontiguă, având avantajul că poate folosi toată memoria liberă aflată la dispoziție. Dezavantajul este că pentru a ajunge la un element aleator trebuie parcursă lista de la început până la elementul dorit.
 
 O listă înlănțuită conține cel puțin un pointer _head_ care reprezintă _capul listei_ și va indica mereu către primul element al listei.
-```ts
-class ListNode<T> {
-  private readonly val: T;
-  private next: ListNode<T> | null;
 
-  constructor(val: T) {
-    this.val = val;
+```ts
+class Node<T> {
+  private readonly val: T;
+  private next: Node<T> | null;
+
+  constructor(value: T) {
+    this.value = value;
     this.next = null;
   }
 }
 
 class LinkedList<T> {
-  private head: ListNode<T> | null;
+  private head: Node<T> | null;
 
   constructor() {
     this.head = null;
@@ -32,20 +33,22 @@ class LinkedList<T> {
    * 4) Adaugă nodul nou la listă, setând proprietatea "next" a nodului "curr" la acest nod nou.
    *
    */
-  
-  insert(data: T) {
-    const newNode = new ListNode(data);
+
+  insert(data: T): void {
+    const newNode = new Node(data);
+
     if (!this.head) {
       this.head = newNode;
       return;
     }
+
     let curr = this.head;
     while (curr?.next) {
       curr = curr.next;
     }
     curr.next = newNode;
   }
-  
+
   /*
    * DELETE
    *
@@ -58,33 +61,27 @@ class LinkedList<T> {
    *    - prev.next = curr.next pentru a sări peste nodul care trebuie șters
    *    - curr.next = null pentru a evita o scurgere de memorie
    */
-  
-  delete(valToDelete: T) {
-    let curr = this.head;
 
-    if (curr?.val === valToDelete) {
-      this.head = curr.next;
-      curr.next = null;
+  delete(valueToDelete: T) {
+    if (!this.head) return;
+
+    if (this.head.value === valueToDelete) {
+      this.head = this.head.next;
       return;
     }
 
-    let prev = null;
+    let prev = this.head;
+    let curr = this.head.next;
 
     while (curr) {
-      if (curr.value === valToDelete) {
-        break;
+      if (curr.value === valueToDelete) {
+        prev.next = curr.next;
+        return;
       }
       prev = curr;
       curr = curr.next;
     }
 
-    if (!curr) {
-      return;
-    }
-
-    prev.next = curr.next;
-    curr.next = null;
- }
   toString() {}
 }
 ```
