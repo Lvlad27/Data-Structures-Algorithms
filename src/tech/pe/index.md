@@ -1,4 +1,4 @@
-QQQInternet Revolution arrived at maturation of popular programming languages with twin goals of power/flexibility (e.g. Lisp) and readability/maintainability\*. Until 2000, many new languages arrived and became popular. Perl (born 1989) and Python (born 1991) battled until Java (born 1995) dominated. Despite attacks from BigTech (IBM, Microsoft, Google, etc.), Java is still most popular platform.\*\*
+Internet Revolution arrived at maturation of popular programming languages with twin goals of power/flexibility (e.g. Lisp) and readability/maintainability\*. Until 2000, many new languages arrived and became popular. Perl (born 1989) and Python (born 1991) battled until Java (born 1995) dominated. Despite attacks from BigTech (IBM, Microsoft, Google, etc.), Java is still most popular platform.\*\*
 
 In 2000, Java finally won. Used barely a couple years. Had few tools. No framework\*\*\*.
 
@@ -2258,18 +2258,20 @@ Software is Data passing Front-end <-> Middleware <-> Backend. Simple and easy.
 
 Learn 5 basics of programming:
 Output, Input, Branch, Loop, Actions
+
 1. hello_world
 2. Get name. Hello Name.
-Storing values is part of Input.
+   Storing values is part of Input.
 3. Get number. Number is more|less than 50.
 4. Get number. Count 1..number.
 5. Everything else. Building interesting programs:
+
 - Repeat I/O with: files, PostgreSQL, http.
 - Organization. Break code into reusable blocks, multiple files. If possible, blackbox into libraries.
 
 Start reading code in: existing project, sample program, or Wikipedia page. Then read manual.
 
-Learn standard conventions while learning syntax. 
+Learn standard conventions while learning syntax.
 Discard bad conventions like braces wasting lines.
 Avoid using external libraries.
 Never copy code from anywhere.
@@ -2289,12 +2291,12 @@ I learned PHP in 1998, fixed PHP Web Store in 2002. Forgot. Chose PHP for large 
 1. Write down what you want new software to do.
 2. Draw (on paper) each screen where actions can happen. Try to combine screens. Do not follow the awful "Wizard" format where many screens are needed to complete one process.
 3. Collect all data to be saved for all those screens: Every field on every form. Every status which changes to determine which screen is shown next. Access control fields like who can do each possible step.
-5. Sanely normalize data into database tables. Build database.
-6. Create screens on computer, probably HTML/CSS. No code.
-7. Build monolithic middleware program to handle all business logic while moving data between backend and Front-end. Can be spaghetti code. Like first draft of a novel, purpose is to record all ideas.
-8. Organize your code. Move reused code into Functions. Group data into Structs. Move Functions working on a single Struct into the Struct to become Class.
-9. Improve backend performance. Move transactional database actions into database. Move other data actions into database if improves performance.
-10. Improve Front-end. Add client middleware to smooth experience, such as entering a field updates other options. (In 1998, I invented Microservices to update webpages without refreshing entire page, to duplicate the better experience of my non-Browser desktop programs and Lotus Notes apps.)
+4. Sanely normalize data into database tables. Build database.
+5. Create screens on computer, probably HTML/CSS. No code.
+6. Build monolithic middleware program to handle all business logic while moving data between backend and Front-end. Can be spaghetti code. Like first draft of a novel, purpose is to record all ideas.
+7. Organize your code. Move reused code into Functions. Group data into Structs. Move Functions working on a single Struct into the Struct to become Class.
+8. Improve backend performance. Move transactional database actions into database. Move other data actions into database if improves performance.
+9. Improve Front-end. Add client middleware to smooth experience, such as entering a field updates other options. (In 1998, I invented Microservices to update webpages without refreshing entire page, to duplicate the better experience of my non-Browser desktop programs and Lotus Notes apps.)
 
 The more applications you design, the closer your first attempt at new software will be to "good". Like novels, needs three:
 
@@ -2313,12 +2315,14 @@ For Application Development, watch the business process:
 
 1. Create a better screen. What are the actions? What is the data?
 2. Action becomes Function. Write the steps. What data is needed?
-3. Related data becomes Struct. Organize into logical sense, smallest useful collection. Sometimes one-to-one relationships are good. People need 0-1: 
+3. Related data becomes Struct. Organize into logical sense, smallest useful collection. Sometimes one-to-one relationships are good. People need 0-1:
+
 - Login (nameLogin, password, id)
 - Employee (id, ssn, history(title, salary))
 - Home (id, addresses(location, dates)).
-4. (Optional for OOP) Structs + Functions = Class. Reverse functions using a Struct to belong to the Class. 
-promote(Person, title, salary); becomes Person.promote(title, salary);
+
+4. (Optional for OOP) Structs + Functions = Class. Reverse functions using a Struct to belong to the Class.
+   promote(Person, title, salary); becomes Person.promote(title, salary);
 5. Add to normalized database.
 6. Build translation layer between database and objects.
 7. Build translation layer between Front-end View and objects.
@@ -2329,3 +2333,41 @@ Never think about "abstracting concepts and abstracting processes" or "modeling"
 Real Software Developers build useful software, doing Actions to Data.
 
 ---
+
+Quickly: Expect normal (2+ years 6-person) software development projects completed within 3 months. All your projects may be completed in 6 months.
+Useful: Functionality meets business needs. Often suggest "obvious" features nobody else imagined, and create desired “impossible” features.
+Usable: Easy to use. Every function where the audience expects it. People enjoy using my applications.
+Fast: Fast performance. Habits naturally optimize code. Functions run where best performed.
+Bug-free: Contagious habits from decades of comparing code with hundreds of programmers.
+Maintainable: Easy to maintain. Future developers can easily read code, and functions are where expected.
+
+---
+
+Ouch. 2 major mistakes.
+(1) "[Devs] drowning in feature work" is bad management. Devs should do "feature work" half their work time, ~15 hours per week on my teams. Other half is research, reading, improving our codebase. But they never upgrade libraries during regular work weeks because...
+(2) Upgrading libraries and other structural changes only happen when starting a major release, before returning to "feature work". Major releases only happen when desired changes break backwards compatibility. With good software development, backwards compatibility never needs to be broken. So major changes like upgrading libraries never happen. Which is good.
+
+- Not having everything to install a new server is terrible failure of Admins, who should backup everything needed to follow instructions by QA.
+- "A critical update" forces a backwards incompatible change. Avoid allowing this to occur.
+- "Fixing one thing requires fixing other things" or "business is at risk" indicates bad design. Use Time Machine to call back and hire Real Programmers/Good Software Developers. Instead of your friend, or the "normal" people HR likes better than us weirdo Programmers.
+
+Just employ one Real Programmer, who will automatically fix your codebase.
+
+20250130
+
+---
+
+PR (Public Ridicule) is Bullying, used by Open Source to reduce low-quality code contributions. PR are offensive to professionals, bad for corporate software development.
+
+Programming is solitary activity. Discussion happens during breaks: not necessarily synchronous. Devs must invite others to discuss their work. Devs have only vote about when work is done and Merged into DEV/trunk.
+
+My Worker/Mentor system allows Mentor to make unrequested suggestions and question anything except "Done" decision. Although I know several features already Merged were updated after Mentor asked questions after the Merge; Worker realized better design, more holistic. On rare occasions when an update significantly changed Front-end, Worker sent message to QA requesting not to pass a Release between the two updates.
+
+Synchronous communication is wonderful. We can talk without thinking.
+
+Asynchronous communication requires maturity, thought, research, to avoid asking for easy answers. Good for people trained on good software, like installing BSD where all possible questions are answered before one reboot.
+
+- Compare to Microsoft "Wizards" asking one question at a time with frequent rebooting. Immature asynchronous conversations take forever.
+
+20250123
+
