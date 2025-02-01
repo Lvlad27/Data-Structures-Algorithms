@@ -61,4 +61,16 @@ In Nx, the project.json file is used to define the configuration for each projec
 Configurations allow you to define different sets of options for your targets. A common use case is to have different configurations for development and production builds.
 
 - **development**: Usually the default configuration for local development. It’s optimized for speed and debugging.
-- **production**: Optimized for performance, typically with features like minification, dead code elimination, and source maps turned off.
+- **production**: Optimized for performance, typically with features like minification, dead code elimination, and source maps turned off.'
+
+## Used commands
+
+`nx init` - Adds Nx to any type of workspace. It installs nx, creates an nx.json configuration file and optionally sets up remote caching. For more info, check https://nx.dev/recipes/adopting-nx.
+
+`nx generate @nx/react:app apps/myapp` - generate a new React application
+`nx generate @nx/react:library libs/mylibrary` - generate a new React library application
+
+`nx generate @nx/node:app apps/myapp` - generate a new Node application
+`nx generate @nx/node:library libs/mylibrary` - generate a new Node library application
+`nx g @nx/express:app apps/my-express-api` - generate a new Express app
+`nx serve my-express-api` - serve the Express api
