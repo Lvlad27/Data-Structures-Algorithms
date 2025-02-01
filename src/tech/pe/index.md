@@ -2334,3 +2334,39 @@ Real Software Developers build useful software, doing Actions to Data.
 
 ---
 
+Quickly: Expect normal (2+ years 6-person) software development projects completed within 3 months. All your projects may be completed in 6 months.
+Useful: Functionality meets business needs. Often suggest "obvious" features nobody else imagined, and create desired “impossible” features.
+Usable: Easy to use. Every function where the audience expects it. People enjoy using my applications.
+Fast: Fast performance. Habits naturally optimize code. Functions run where best performed.
+Bug-free: Contagious habits from decades of comparing code with hundreds of programmers.
+Maintainable: Easy to maintain. Future developers can easily read code, and functions are where expected.
+
+---
+
+Ouch. 2 major mistakes.
+(1) "[Devs] drowning in feature work" is bad management. Devs should do "feature work" half their work time, ~15 hours per week on my teams. Other half is research, reading, improving our codebase. But they never upgrade libraries during regular work weeks because...
+(2) Upgrading libraries and other structural changes only happen when starting a major release, before returning to "feature work". Major releases only happen when desired changes break backwards compatibility. With good software development, backwards compatibility never needs to be broken. So major changes like upgrading libraries never happen. Which is good.
+
+- Not having everything to install a new server is terrible failure of Admins, who should backup everything needed to follow instructions by QA.
+- "A critical update" forces a backwards incompatible change. Avoid allowing this to occur.
+- "Fixing one thing requires fixing other things" or "business is at risk" indicates bad design. Use Time Machine to call back and hire Real Programmers/Good Software Developers. Instead of your friend, or the "normal" people HR likes better than us weirdo Programmers.
+
+Just employ one Real Programmer, who will automatically fix your codebase.
+
+20250130
+
+---
+
+PR (Public Ridicule) is Bullying, used by Open Source to reduce low-quality code contributions. PR are offensive to professionals, bad for corporate software development.
+
+Programming is solitary activity. Discussion happens during breaks: not necessarily synchronous. Devs must invite others to discuss their work. Devs have only vote about when work is done and Merged into DEV/trunk.
+
+My Worker/Mentor system allows Mentor to make unrequested suggestions and question anything except "Done" decision. Although I know several features already Merged were updated after Mentor asked questions after the Merge; Worker realized better design, more holistic. On rare occasions when an update significantly changed Front-end, Worker sent message to QA requesting not to pass a Release between the two updates.
+
+Synchronous communication is wonderful. We can talk without thinking.
+
+Asynchronous communication requires maturity, thought, research, to avoid asking for easy answers. Good for people trained on good software, like installing BSD where all possible questions are answered before one reboot.
+
+- Compare to Microsoft "Wizards" asking one question at a time with frequent rebooting. Immature asynchronous conversations take forever.
+
+20250123

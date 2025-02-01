@@ -5,18 +5,18 @@ O listă înlănțuită este o structură de date liniară alcătuită dintr-o l
 O listă înlănțuită conține cel puțin un pointer _head_ care reprezintă _capul listei_ și va indica mereu către primul element al listei.
 
 ```ts
-class ListNode<T> {
+class Node<T> {
   private readonly val: T;
-  private next: ListNode<T> | null;
+  private next: Node<T> | null;
 
-  constructor(val: T) {
-    this.val = val;
+  constructor(value: T) {
+    this.value = value;
     this.next = null;
   }
 }
 
 class LinkedList<T> {
-  private head: ListNode<T> | null;
+  private head: Node<T> | null;
 
   constructor() {
     this.head = null;
@@ -34,12 +34,14 @@ class LinkedList<T> {
    *
    */
 
-  insert(data: T) {
-    const newNode = new ListNode(data);
+  insert(data: T): void {
+    const newNode = new Node(data);
+
     if (!this.head) {
       this.head = newNode;
       return;
     }
+
     let curr = this.head;
     while (curr?.next) {
       curr = curr.next;
@@ -60,20 +62,21 @@ class LinkedList<T> {
    *    - curr.next = null pentru a evita o scurgere de memorie
    */
 
-  delete(valToDelete: T) {
-    let curr = this.head;
+  delete(valueToDelete: T) {
+    if (!this.head) return;
 
-    if (curr?.val === valToDelete) {
-      this.head = curr.next;
-      curr.next = null;
+    if (this.head.value === valueToDelete) {
+      this.head = this.head.next;
       return;
     }
 
-    let prev = null;
+    let prev = this.head;
+    let curr = this.head.next;
 
     while (curr) {
-      if (curr?.val === valToDelete) {
-        break;
+      if (curr.value === valueToDelete) {
+        prev.next = curr.next;
+        return;
       }
       prev = curr;
       curr = curr.next;
@@ -86,7 +89,6 @@ class LinkedList<T> {
     prev.next = curr.next;
     curr.next = null;
   }
-
   toString() {}
 }
 ```
